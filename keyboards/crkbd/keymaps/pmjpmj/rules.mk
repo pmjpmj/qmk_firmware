@@ -1,0 +1,10 @@
+MOUSEKEY_ENABLE = no # Mouse keys
+EXTRAKEY_ENABLE = yes # Audio control and System control
+AUTO_SHIFT_ENABLE = yes # Auto Shift
+DYNAMIC_MACRO_ENABLE = yes
+WPM_ENABLE = no
+
+RGBLIGHT_ENABLE = no
+RGB_MATRIX_ENABLE = yes
+OLED_ENABLE = yes
+OLED_DRIVER = SSD1306

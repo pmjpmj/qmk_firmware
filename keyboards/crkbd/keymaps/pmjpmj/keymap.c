@@ -22,17 +22,40 @@
 #define RALT_UP MT(MOD_RALT, KC_UP)
 
 #define BL_CMDH DF(L_BASE_COLEMAK_DH)
+#define BL_CMDR DF(L_BASE_COLEMAK_DH_NO_HRM)
 #define BL_QWTY DF(L_BASE_QWERTY)
 
+// colemak dh home row mods
+// Left-hand home row mods
+#define HOME_A LCTL_T(KC_A)
+#define HOME_R LALT_T(KC_R)
+#define HOME_S LGUI_T(KC_S)
+#define HOME_T LSFT_T(KC_T)
+
+// Right-hand home row mods
+#define HOME_N RSFT_T(KC_N)
+#define HOME_E RGUI_T(KC_E)
+#define HOME_I LALT_T(KC_I)
+#define HOME_O RCTL_T(KC_O)
+
+
 enum Layers {
-    L_BASE_COLEMAK_DH, L_BASE_QWERTY, L_LOWER, L_RAISE, L_ADJUST
+    L_BASE_COLEMAK_DH, L_BASE_COLEMAK_DH_NO_HRM, L_BASE_QWERTY, L_LOWER, L_RAISE, L_ADJUST
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // base
   [L_BASE_COLEMAK_DH] = LAYOUT_split_3x6_3(
      KC_TAB,  KC_Q,  KC_W,  KC_F,   KC_P,  KC_B,      KC_J,   KC_L,    KC_U,    KC_Y, KC_SCLN, KC_BSPC,
-    CTL_ESC,  KC_A,  KC_R,  KC_S,   KC_T,  KC_G,      KC_M,   KC_N,    KC_E,    KC_I,    KC_O, CTL_QUT,
+    CTL_ESC,  HOME_A,  HOME_R,  HOME_S,   HOME_T,  KC_G,      KC_M,   HOME_N,    HOME_E,    HOME_I,    HOME_O, KC_QUOT,
+    KC_LSFT,  KC_Z,  KC_X,  KC_C,   KC_D,  KC_V,      KC_K,   KC_H, KC_COMM,  KC_DOT, KC_SLSH, SFT_ENT,
+                      LALT_LT, LOW_SPC, GUI_TAB,      GUI_ENT, RAI_BSP, RALT_RT
+
+  ),
+
+  [L_BASE_COLEMAK_DH_NO_HRM] = LAYOUT_split_3x6_3(
+     KC_TAB,  KC_Q,  KC_W,  KC_F,   KC_P,  KC_B,      KC_J,   KC_L,    KC_U,    KC_Y, KC_SCLN, KC_BSPC,
+    CTL_ESC,  KC_A,  KC_R,  KC_S,   KC_T,  KC_G,      KC_M,   KC_N,    KC_E,    KC_I,    KC_O, KC_QUOT,
     KC_LSFT,  KC_Z,  KC_X,  KC_C,   KC_D,  KC_V,      KC_K,   KC_H, KC_COMM,  KC_DOT, KC_SLSH, SFT_ENT,
                       LALT_LT, LOW_SPC, GUI_TAB,      GUI_ENT, RAI_BSP, RALT_RT
 
@@ -40,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_BASE_QWERTY] = LAYOUT_split_3x6_3(
      KC_TAB,  KC_Q,  KC_W,  KC_E,   KC_R,  KC_T,      KC_Y,   KC_U,    KC_I,    KC_O, KC_P, KC_BSPC,
-    CTL_ESC,  KC_A,  KC_S,  KC_D,   KC_F,  KC_G,      KC_H,   KC_J,    KC_K,    KC_L,    KC_SCLN, CTL_QUT,
+    CTL_ESC,  KC_A,  KC_S,  KC_D,   KC_F,  KC_G,      KC_H,   KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
     KC_LSFT,  KC_Z,  KC_X,  KC_C,   KC_V,  KC_B,      KC_N,   KC_M, KC_COMM,  KC_DOT, KC_SLSH, SFT_ENT,
                       LALT_LT, LOW_SPC, GUI_TAB,      GUI_ENT, RAI_BSP, RALT_RT
 
@@ -57,13 +80,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // raise
   [L_RAISE] = LAYOUT_split_3x6_3(
      KC_GRV,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_6,      KC_7,    KC_8,     KC_9,     KC_0,  KC_DEL,
-    CTL_ESC,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,     KC_F11,   KC_MINS,  KC_EQL,  KC_LBRC,  KC_RBRC, CTL_BSL,
+    CTL_ESC,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,     KC_F11,   KC_MINS,  KC_EQL,  KC_LBRC,  KC_RBRC, KC_BSLS,
     KC_LSFT,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,     KC_F12,   KC_LEFT, KC_DOWN,    KC_UP,  KC_RGHT, SFT_ENT,
                                LALT_DN, MO_ADJT, GUI_TAB,    GUI_ENT, _______, RALT_UP
   ),
 
   [L_ADJUST] = LAYOUT_split_3x6_3(
-    CG_TOGG, BL_CMDH, BL_QWTY, XXXXXXX, XXXXXXX, KC_ASTG,    KC_CAPS, XXXXXXX, XXXXXXX, XXXXXXX, KC_INS,  KC_DEL,
+    CG_TOGG, BL_CMDH, BL_CMDR, BL_QWTY, XXXXXXX, KC_ASTG,    KC_CAPS, XXXXXXX, XXXXXXX, XXXXXXX, KC_INS,  KC_DEL,
     RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,    XXXXXXX, KC_VOLD, KC_VOLU, KC_MUTE, XXXXXXX, XXXXXXX,
     RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,    XXXXXXX, KC_MPRV, KC_MNXT, KC_MPLY, KC_MSTP, XXXXXXX,
                                XXXXXXX, _______, XXXXXXX,    XXXXXXX, _______, XXXXXXX
@@ -103,6 +126,9 @@ void render_default_layer_state(void) {
         case L_BASE_COLEMAK_DH:
             oled_write_ln_P(PSTR("ColDH"), false);
             break;
+        case L_BASE_COLEMAK_DH_NO_HRM:
+            oled_write_ln_P(PSTR("CDNHM"), false);
+            break;
         case L_BASE_QWERTY:
             oled_write_ln_P(PSTR(" Qwty"), false);
             break;
@@ -113,6 +139,7 @@ void render_layer_state(void) {
     oled_write_P(PSTR("LAYER"), false);
     switch (get_highest_layer(layer_state)) {
         case L_BASE_COLEMAK_DH:
+        case L_BASE_COLEMAK_DH_NO_HRM:
         case L_BASE_QWERTY:
             oled_write_ln_P(PSTR(" Base"), false);
             break;

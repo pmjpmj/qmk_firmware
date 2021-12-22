@@ -3,6 +3,7 @@ EXTRAKEY_ENABLE = yes # Audio control and System control
 AUTO_SHIFT_ENABLE = yes # Auto Shift
 DYNAMIC_MACRO_ENABLE = yes
 WPM_ENABLE = no
+WAIT_FOR_USB = yes
 
 RGBLIGHT_ENABLE = no
 RGB_MATRIX_ENABLE = yes

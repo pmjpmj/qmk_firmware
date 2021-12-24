@@ -6,6 +6,9 @@
 #undef TAPPING_TERM
 #define TAPPING_TERM 200
 
+#undef LEADER_TIMEOUT
+#define LEADER_TIMEOUT 1000
+
 // Prevent normal rollover on alphas from accidentally triggering mods.
 #define IGNORE_MOD_TAP_INTERRUPT
 

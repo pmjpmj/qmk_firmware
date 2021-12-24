@@ -1,93 +1,61 @@
 #include QMK_KEYBOARD_H
-
-#define CTL_ESC MT(MOD_LCTL, KC_ESC)
-
-#define GUI_SPC MT(MOD_LGUI, KC_SPC)
-#define GUI_TAB MT(MOD_LGUI, KC_TAB)
-#define GUI_ENT MT(MOD_LGUI, KC_ENT)
-
-#define CTL_QUT MT(MOD_LCTL, KC_QUOT)
-#define CTL_PIP MT(MOD_LCTL, KC_PIPE)
-#define CTL_BSL MT(MOD_LCTL, KC_BSLS)
-
-#define SFT_ENT MT(MOD_RSFT, KC_ENT)
-
-#define LOW_SPC LT(L_LOWER, KC_SPC)
-#define RAI_BSP LT(L_RAISE, KC_BSPC)
-#define MO_ADJT MO(L_ADJUST)
-
-#define LALT_LT MT(MOD_LALT, KC_LEFT)
-#define RALT_RT MT(MOD_RALT, KC_RGHT)
-#define LALT_DN MT(MOD_LALT, KC_DOWN)
-#define RALT_UP MT(MOD_RALT, KC_UP)
-
-#define BL_CMDH DF(L_BASE_COLEMAK_DH)
-#define BL_CMDR DF(L_BASE_COLEMAK_DH_HRM)
-#define BL_QWTY DF(L_BASE_QWERTY)
-
-// colemak dh home row mods
-// Left-hand home row mods
-#define HOME_A LCTL_T(KC_A)
-#define HOME_R LALT_T(KC_R)
-#define HOME_S LGUI_T(KC_S)
-#define HOME_T LSFT_T(KC_T)
-
-// Right-hand home row mods
-#define HOME_N RSFT_T(KC_N)
-#define HOME_E RGUI_T(KC_E)
-#define HOME_I LALT_T(KC_I)
-#define HOME_O RCTL_T(KC_O)
-
+#include "keycodes.h"
 
 enum Layers {
-    L_BASE_COLEMAK_DH, L_BASE_COLEMAK_DH_HRM, L_BASE_QWERTY, L_LOWER, L_RAISE, L_ADJUST
+    L_BASE_COLEMAK_DH_HRM, L_BASE_COLEMAK_DH,  L_BASE_QWERTY, L_BASE_GAME, L_LOWER, L_RAISE, L_ADJUST
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // base
 
-  [L_BASE_COLEMAK_DH] = LAYOUT_split_3x6_3(
-     KC_TAB,  KC_Q,  KC_W,  KC_F,   KC_P,  KC_B,      KC_J,   KC_L,    KC_U,    KC_Y, KC_SCLN, KC_BSPC,
-    CTL_ESC,  KC_A,  KC_R,  KC_S,   KC_T,  KC_G,      KC_M,   KC_N,    KC_E,    KC_I,    KC_O, KC_QUOT,
-    KC_LSFT,  KC_Z,  KC_X,  KC_C,   KC_D,  KC_V,      KC_K,   KC_H, KC_COMM,  KC_DOT, KC_SLSH, SFT_ENT,
-                      LALT_LT, LOW_SPC, GUI_TAB,      GUI_ENT, RAI_BSP, RALT_RT
+  [L_BASE_COLEMAK_DH_HRM] = LAYOUT_split_3x6_3(
+     KC_TAB,    KC_Q,    KC_W,    KC_F,     KC_P,  KC_B,      KC_J,   KC_L,    KC_U,    KC_Y, KC_SCLN, KC_BSPC,
+    GUI_ESC,  HOME_A,  HOME_R,  HOME_S,   HOME_T,  KC_G,      KC_M, HOME_N,  HOME_E,  HOME_I,  HOME_O, KC_QUOT,
+    KC_LSFT,    KC_Z,    KC_X,    KC_C,     KC_D,  KC_V,      KC_K,   KC_H, KC_COMM,  KC_DOT, KC_SLSH, SFT_ENT,
+                      LALT_TB, LOW_SPC, CTL_SPC,      CTL_ENT, RAI_BSP, RALT_DL
 
   ),
 
-  [L_BASE_COLEMAK_DH_HRM] = LAYOUT_split_3x6_3(
+  [L_BASE_COLEMAK_DH] = LAYOUT_split_3x6_3(
      KC_TAB,  KC_Q,  KC_W,  KC_F,   KC_P,  KC_B,      KC_J,   KC_L,    KC_U,    KC_Y, KC_SCLN, KC_BSPC,
-    CTL_ESC,  HOME_A,  HOME_R,  HOME_S,   HOME_T,  KC_G,      KC_M,   HOME_N,    HOME_E,    HOME_I,    HOME_O, KC_QUOT,
+    GUI_ESC,  KC_A,  KC_R,  KC_S,   KC_T,  KC_G,      KC_M,   KC_N,    KC_E,    KC_I,    KC_O, KC_QUOT,
     KC_LSFT,  KC_Z,  KC_X,  KC_C,   KC_D,  KC_V,      KC_K,   KC_H, KC_COMM,  KC_DOT, KC_SLSH, SFT_ENT,
-                      LALT_LT, LOW_SPC, GUI_TAB,      GUI_ENT, RAI_BSP, RALT_RT
+                      LALT_TB, LOW_SPC, CTL_SPC,      CTL_ENT, RAI_BSP, RALT_DL
 
   ),
 
   [L_BASE_QWERTY] = LAYOUT_split_3x6_3(
-     KC_TAB,  KC_Q,  KC_W,  KC_E,   KC_R,  KC_T,      KC_Y,   KC_U,    KC_I,    KC_O, KC_P, KC_BSPC,
-    CTL_ESC,  KC_A,  KC_S,  KC_D,   KC_F,  KC_G,      KC_H,   KC_J,    KC_K,    KC_L,    KC_SCLN, KC_QUOT,
+     KC_TAB,  KC_Q,  KC_W,  KC_E,   KC_R,  KC_T,      KC_Y,   KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
+    GUI_ESC,  KC_A,  KC_S,  KC_D,   KC_F,  KC_G,      KC_H,   KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
     KC_LSFT,  KC_Z,  KC_X,  KC_C,   KC_V,  KC_B,      KC_N,   KC_M, KC_COMM,  KC_DOT, KC_SLSH, SFT_ENT,
-                      LALT_LT, LOW_SPC, GUI_TAB,      GUI_ENT, RAI_BSP, RALT_RT
+                      LALT_TB, LOW_SPC, CTL_SPC,      CTL_ENT, RAI_BSP, RALT_DL
 
   ),
 
-    // lower
+  [L_BASE_GAME] = LAYOUT_split_3x6_3(
+     KC_TAB,  KC_Q,  KC_W,  KC_E,   KC_R,  KC_T,      KC_Y,   KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
+    KC_LCTL,  KC_A,  KC_S,  KC_D,   KC_F,  KC_G,      KC_H,   KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
+    KC_LSFT,  KC_Z,  KC_X,  KC_C,   KC_V,  KC_B,      KC_N,   KC_M, KC_COMM,  KC_DOT, KC_SLSH, SFT_ENT,
+                       LALT_TB, LOW_SPC, KC_SPC,      CTL_ENT, RAI_BSP, RALT_DL
+
+  ),
+
   [L_LOWER] = LAYOUT_split_3x6_3(
-    KC_TILD, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,    KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN,  KC_DEL,
-    CTL_ESC, KC_VOLD, KC_VOLU, KC_MUTE, KC_MPLY, KC_MNXT,    KC_NUHS, KC_UNDS, KC_PLUS, KC_LCBR, KC_RCBR, KC_PIPE,
-    KC_LSFT, DM_REC2, DM_REC1, DM_PLY2, DM_PLY1, DM_RSTP,    KC_NUBS, KC_HOME, KC_PGDN, KC_PGUP,  KC_END, SFT_ENT,
-                               LALT_DN, _______, GUI_TAB,    GUI_ENT, MO_ADJT, RALT_UP
+     KC_GRV,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_TILD,
+    GUI_ESC, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,    KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PIPE,
+    KC_LSFT, KC_LBRC, KC_RBRC, KC_MINS,  KC_EQL, KC_BSLS,    KC_PIPE, KC_PLUS, KC_UNDS, KC_LCBR, KC_RCBR, SFT_ENT,
+                               LALT_TB, _______, CTL_SPC,    CTL_ENT, MO_ADJT, RALT_DL
   ),
 
-  // raise
   [L_RAISE] = LAYOUT_split_3x6_3(
-     KC_GRV,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_6,      KC_7,    KC_8,     KC_9,     KC_0,  KC_DEL,
-    CTL_ESC,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,     KC_F11,   KC_MINS,  KC_EQL,  KC_LBRC,  KC_RBRC, KC_BSLS,
-    KC_LSFT,   KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,     KC_F12,   KC_LEFT, KC_DOWN,    KC_UP,  KC_RGHT, SFT_ENT,
-                               LALT_DN, MO_ADJT, GUI_TAB,    GUI_ENT, _______, RALT_UP
+    KC_CAPS,  KC_F1,   KC_F2,  KC_F3,    KC_F4,   KC_F5,      _______, C(KC_LEFT), _______,  _______, C(KC_RGHT), KC_LEAD,
+    GUI_ESC,  KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,      _______,   KC_LEFT,  KC_DOWN,    KC_UP,    KC_RGHT, _______,
+    KC_LSFT,  KC_F11, KC_F12, DM_REC1, DM_PLY1, DM_RSTP,      _______,   KC_HOME,  KC_PGDN,  KC_PGUP,     KC_END, SFT_ENT,
+                                LALT_TB, MO_ADJT, CTL_SPC,    CTL_ENT, _______, RALT_DL
   ),
 
   [L_ADJUST] = LAYOUT_split_3x6_3(
-    CG_TOGG, BL_CMDH, BL_CMDR, BL_QWTY, XXXXXXX, KC_ASTG,    KC_CAPS, XXXXXXX, XXXXXXX, XXXXXXX, KC_INS,  KC_DEL,
+    CG_TOGG, BL_CMDR, BL_CMDH, BL_QWTY, BL_GAME, XXXXXXX,    KC_ASTG, XXXXXXX, XXXXXXX, XXXXXXX, KC_INS,  KC_DEL,
     RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX, XXXXXXX,    XXXXXXX, KC_VOLD, KC_VOLU, KC_MUTE, XXXXXXX, XXXXXXX,
     RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,    XXXXXXX, KC_MPRV, KC_MNXT, KC_MPLY, KC_MSTP, XXXXXXX,
                                XXXXXXX, _______, XXXXXXX,    XXXXXXX, _______, XXXXXXX
@@ -96,16 +64,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LALT_LT:
         case LOW_SPC:
-        case GUI_TAB:
-        case GUI_ENT:
         case RAI_BSP:
-        case RALT_RT:
-        case LALT_DN:
-        case RALT_UP:
-        case CTL_ESC:
-        case SFT_ENT:
+        case CTL_SPC:
+        case CTL_ENT:
+        case LALT_TB:
+        case RALT_DL:
             // Immediately select the hold action when another key is tapped.
             return true;
         default:
@@ -113,6 +77,49 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
             return false;
     }
 }
+
+#ifdef LEADER_ENABLE
+LEADER_EXTERNS();
+
+void matrix_scan_user(void) {
+  LEADER_DICTIONARY() {
+    leading = false;
+    leader_end();
+
+    // SEQ_ONE_KEY(KC_F) {
+    //   // Anything you can do in a macro.
+    //   SEND_STRING("QMK is awesome.");
+    // }
+    // SEQ_TWO_KEYS(KC_G, KC_D) {
+    //   SEND_STRING(SS_LCTL("a") SS_LCTL("c"));
+    // }
+    // SEQ_THREE_KEYS(KC_D, KC_D, KC_S) {
+    //   SEND_STRING("https://start.duckduckgo.com\n");
+    // }
+    // SEQ_TWO_KEYS(KC_A, KC_S) {
+    //   register_code(KC_LGUI);
+    //   register_code(KC_S);
+    //   unregister_code(KC_S);
+    //   unregister_code(KC_LGUI);
+    // }
+    SEQ_TWO_KEYS(KC_G, KC_S) {
+      SEND_STRING("git status");
+    }
+    SEQ_TWO_KEYS(KC_G, KC_C) {
+      SEND_STRING("git commit");
+    }
+    SEQ_TWO_KEYS(KC_G, KC_L) {
+      SEND_STRING("git log");
+    }
+    SEQ_THREE_KEYS(KC_G, KC_P, KC_U) {
+      SEND_STRING("git pull");
+    }
+    SEQ_THREE_KEYS(KC_G, KC_P, KC_S) {
+      SEND_STRING("git push");
+    }
+  }
+}
+#endif
 
 #ifdef OLED_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
@@ -130,6 +137,7 @@ void render_crkbd_logo(void) {
         0xc0, 0xc1, 0xc2, 0xc3, 0xc4, 0xc5, 0xc6, 0xc7, 0xc8, 0xc9, 0xca, 0xcb, 0xcc, 0xcd, 0xce, 0xcf, 0xd0, 0xd1, 0xd2, 0xd3, 0xd4,
         0};
     oled_write_P(crkbd_logo, false);
+    // oled_write_ln_P(PSTR("corne"), false);
 }
 
 #ifdef WPM_ENABLE
@@ -152,6 +160,9 @@ void render_default_layer_state(void) {
             break;
         case L_BASE_QWERTY:
             oled_write_ln_P(PSTR(" Qwty"), false);
+            break;
+        case L_BASE_GAME:
+            oled_write_ln_P(PSTR(" Game"), false);
             break;
     }
 }
@@ -193,17 +204,10 @@ void render_mod_status(uint8_t modifiers) {
     oled_write_P(PSTR("Mods:"), false);
     oled_write_P(PSTR(" "), false);
 
-    if (!keymap_config.swap_lctl_lgui) {
-        oled_write_P(PSTR("C"), (modifiers & MOD_MASK_CTRL));
-        oled_write_P(PSTR("A"), (modifiers & MOD_MASK_ALT));
-        oled_write_P(PSTR("G"), (modifiers & MOD_MASK_GUI));
-        oled_write_P(PSTR("S"), (modifiers & MOD_MASK_SHIFT));
-    } else {
-        oled_write_P(PSTR("G"), (modifiers & MOD_MASK_GUI));
-        oled_write_P(PSTR("A"), (modifiers & MOD_MASK_ALT));
-        oled_write_P(PSTR("C"), (modifiers & MOD_MASK_CTRL));
-        oled_write_P(PSTR("S"), (modifiers & MOD_MASK_SHIFT));
-    }
+    oled_write_P(PSTR("G"), (modifiers & MOD_MASK_GUI));
+    oled_write_P(PSTR("A"), (modifiers & MOD_MASK_ALT));
+    oled_write_P(PSTR("C"), (modifiers & MOD_MASK_CTRL));
+    oled_write_P(PSTR("S"), (modifiers & MOD_MASK_SHIFT));
 
     #ifndef WPM_ENABLE
     oled_write_ln_P(PSTR(""), false);
@@ -218,11 +222,11 @@ void render_bootmagic_status(void) {
     };
     oled_write_P(PSTR("BTMGK"), false);
     oled_write_P(PSTR(" "), false);
-    oled_write_P(logo[0][0], keymap_config.swap_lctl_lgui);
-    oled_write_P(logo[1][0], !keymap_config.swap_lctl_lgui);
+    oled_write_P(logo[0][0], !keymap_config.swap_lctl_lgui);
+    oled_write_P(logo[1][0], keymap_config.swap_lctl_lgui);
     oled_write_P(PSTR(" "), false);
-    oled_write_P(logo[0][1], keymap_config.swap_lctl_lgui);
-    oled_write_P(logo[1][1], !keymap_config.swap_lctl_lgui);
+    oled_write_P(logo[0][1], !keymap_config.swap_lctl_lgui);
+    oled_write_P(logo[1][1], keymap_config.swap_lctl_lgui);
     oled_write_P(PSTR(" NKRO"), keymap_config.nkro);
 }
 

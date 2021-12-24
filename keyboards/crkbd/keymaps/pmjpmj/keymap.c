@@ -22,7 +22,7 @@
 #define RALT_UP MT(MOD_RALT, KC_UP)
 
 #define BL_CMDH DF(L_BASE_COLEMAK_DH)
-#define BL_CMDR DF(L_BASE_COLEMAK_DH_NO_HRM)
+#define BL_CMDR DF(L_BASE_COLEMAK_DH_HRM)
 #define BL_QWTY DF(L_BASE_QWERTY)
 
 // colemak dh home row mods
@@ -40,22 +40,23 @@
 
 
 enum Layers {
-    L_BASE_COLEMAK_DH, L_BASE_COLEMAK_DH_NO_HRM, L_BASE_QWERTY, L_LOWER, L_RAISE, L_ADJUST
+    L_BASE_COLEMAK_DH, L_BASE_COLEMAK_DH_HRM, L_BASE_QWERTY, L_LOWER, L_RAISE, L_ADJUST
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // base
+
   [L_BASE_COLEMAK_DH] = LAYOUT_split_3x6_3(
      KC_TAB,  KC_Q,  KC_W,  KC_F,   KC_P,  KC_B,      KC_J,   KC_L,    KC_U,    KC_Y, KC_SCLN, KC_BSPC,
-    CTL_ESC,  HOME_A,  HOME_R,  HOME_S,   HOME_T,  KC_G,      KC_M,   HOME_N,    HOME_E,    HOME_I,    HOME_O, KC_QUOT,
+    CTL_ESC,  KC_A,  KC_R,  KC_S,   KC_T,  KC_G,      KC_M,   KC_N,    KC_E,    KC_I,    KC_O, KC_QUOT,
     KC_LSFT,  KC_Z,  KC_X,  KC_C,   KC_D,  KC_V,      KC_K,   KC_H, KC_COMM,  KC_DOT, KC_SLSH, SFT_ENT,
                       LALT_LT, LOW_SPC, GUI_TAB,      GUI_ENT, RAI_BSP, RALT_RT
 
   ),
 
-  [L_BASE_COLEMAK_DH_NO_HRM] = LAYOUT_split_3x6_3(
+  [L_BASE_COLEMAK_DH_HRM] = LAYOUT_split_3x6_3(
      KC_TAB,  KC_Q,  KC_W,  KC_F,   KC_P,  KC_B,      KC_J,   KC_L,    KC_U,    KC_Y, KC_SCLN, KC_BSPC,
-    CTL_ESC,  KC_A,  KC_R,  KC_S,   KC_T,  KC_G,      KC_M,   KC_N,    KC_E,    KC_I,    KC_O, KC_QUOT,
+    CTL_ESC,  HOME_A,  HOME_R,  HOME_S,   HOME_T,  KC_G,      KC_M,   HOME_N,    HOME_E,    HOME_I,    HOME_O, KC_QUOT,
     KC_LSFT,  KC_Z,  KC_X,  KC_C,   KC_D,  KC_V,      KC_K,   KC_H, KC_COMM,  KC_DOT, KC_SLSH, SFT_ENT,
                       LALT_LT, LOW_SPC, GUI_TAB,      GUI_ENT, RAI_BSP, RALT_RT
 
@@ -93,6 +94,26 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 };
 
+bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LALT_LT:
+        case LOW_SPC:
+        case GUI_TAB:
+        case GUI_ENT:
+        case RAI_BSP:
+        case RALT_RT:
+        case LALT_DN:
+        case RALT_UP:
+        case CTL_ESC:
+        case SFT_ENT:
+            // Immediately select the hold action when another key is tapped.
+            return true;
+        default:
+            // Do not select the hold action when another key is tapped.
+            return false;
+    }
+}
+
 #ifdef OLED_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
     if (is_keyboard_master()) {
@@ -126,8 +147,8 @@ void render_default_layer_state(void) {
         case L_BASE_COLEMAK_DH:
             oled_write_ln_P(PSTR("ColDH"), false);
             break;
-        case L_BASE_COLEMAK_DH_NO_HRM:
-            oled_write_ln_P(PSTR("CDNHM"), false);
+        case L_BASE_COLEMAK_DH_HRM:
+            oled_write_P(PSTR("ColDH  HRM"), false);
             break;
         case L_BASE_QWERTY:
             oled_write_ln_P(PSTR(" Qwty"), false);
@@ -139,7 +160,7 @@ void render_layer_state(void) {
     oled_write_P(PSTR("LAYER"), false);
     switch (get_highest_layer(layer_state)) {
         case L_BASE_COLEMAK_DH:
-        case L_BASE_COLEMAK_DH_NO_HRM:
+        case L_BASE_COLEMAK_DH_HRM:
         case L_BASE_QWERTY:
             oled_write_ln_P(PSTR(" Base"), false);
             break;
@@ -171,10 +192,19 @@ void render_keylock_status(uint8_t led_usb_state) {
 void render_mod_status(uint8_t modifiers) {
     oled_write_P(PSTR("Mods:"), false);
     oled_write_P(PSTR(" "), false);
-    oled_write_P(PSTR("S"), (modifiers & MOD_MASK_SHIFT));
-    oled_write_P(PSTR("C"), (modifiers & MOD_MASK_CTRL));
-    oled_write_P(PSTR("A"), (modifiers & MOD_MASK_ALT));
-    oled_write_P(PSTR("G"), (modifiers & MOD_MASK_GUI));
+
+    if (!keymap_config.swap_lctl_lgui) {
+        oled_write_P(PSTR("C"), (modifiers & MOD_MASK_CTRL));
+        oled_write_P(PSTR("A"), (modifiers & MOD_MASK_ALT));
+        oled_write_P(PSTR("G"), (modifiers & MOD_MASK_GUI));
+        oled_write_P(PSTR("S"), (modifiers & MOD_MASK_SHIFT));
+    } else {
+        oled_write_P(PSTR("G"), (modifiers & MOD_MASK_GUI));
+        oled_write_P(PSTR("A"), (modifiers & MOD_MASK_ALT));
+        oled_write_P(PSTR("C"), (modifiers & MOD_MASK_CTRL));
+        oled_write_P(PSTR("S"), (modifiers & MOD_MASK_SHIFT));
+    }
+
     #ifndef WPM_ENABLE
     oled_write_ln_P(PSTR(""), false);
     #endif

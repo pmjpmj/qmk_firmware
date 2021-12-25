@@ -1,8 +1,8 @@
 #include QMK_KEYBOARD_H
-#include "keycodes.h"
+#include "pmjpmj.h"
 
 enum Layers {
-    L_BASE_COLEMAK_DH_HRM, L_BASE_COLEMAK_DH,  L_BASE_QWERTY, L_BASE_GAME, L_LOWER, L_RAISE, L_ADJUST
+    L_BASE_COLEMAK_DH_HRM, L_BASE_COLEMAK_DH,  L_BASE_QWERTY, L_BASE_GAME, L_LOWER, L_RAISE, L_ADJUST, L_ONESHOT
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -42,16 +42,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_LOWER] = LAYOUT_split_3x6_3(
      KC_GRV,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_TILD,
-    GUI_ESC, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,    KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PIPE,
-    KC_LSFT, KC_LBRC, KC_RBRC, KC_MINS,  KC_EQL, KC_BSLS,    KC_PIPE, KC_PLUS, KC_UNDS, KC_LCBR, KC_RCBR, SFT_ENT,
-                               LALT_TB, _______, CTL_SPC,    CTL_ENT, MO_ADJT, RALT_DL
+    _______, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,    KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PIPE,
+    _______, KC_LBRC, KC_RBRC, KC_MINS,  KC_EQL, KC_BSLS,    KC_PIPE, KC_PLUS, KC_UNDS, KC_LCBR, KC_RCBR, _______,
+                               _______, _______, _______,    _______, _______, _______
   ),
 
   [L_RAISE] = LAYOUT_split_3x6_3(
-    KC_CAPS,  KC_F1,   KC_F2,  KC_F3,    KC_F4,   KC_F5,      _______, C(KC_LEFT), _______,  _______, C(KC_RGHT), KC_LEAD,
-    GUI_ESC,  KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,      _______,   KC_LEFT,  KC_DOWN,    KC_UP,    KC_RGHT, _______,
-    KC_LSFT,  KC_F11, KC_F12, DM_REC1, DM_PLY1, DM_RSTP,      _______,   KC_HOME,  KC_PGDN,  KC_PGUP,     KC_END, SFT_ENT,
-                                LALT_TB, MO_ADJT, CTL_SPC,    CTL_ENT, _______, RALT_DL
+    KC_CAPS,  KC_F1,   KC_F2,  KC_F3,    KC_F4,   KC_F5,      _______, C(KC_LEFT), _______,  _______, C(KC_RGHT), OSL(L_ONESHOT),
+    _______,  KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,      _______,   KC_LEFT,  KC_DOWN,    KC_UP,    KC_RGHT, _______,
+    _______,  KC_F11, KC_F12, DM_REC1, DM_PLY1, DM_RSTP,      _______,   KC_HOME,  KC_PGDN,  KC_PGUP,     KC_END, _______,
+                                _______, _______, _______,    _______, _______, _______
   ),
 
   [L_ADJUST] = LAYOUT_split_3x6_3(
@@ -60,7 +60,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX, XXXXXXX,    XXXXXXX, KC_MPRV, KC_MNXT, KC_MPLY, KC_MSTP, XXXXXXX,
                                XXXXXXX, _______, XXXXXXX,    XXXXXXX, _______, XXXXXXX
   ),
+
+  [L_ONESHOT] = LAYOUT_split_3x6_3(
+    XXXXXXX, KC_SEC1, KC_SEC2, KC_SEC3, KC_SEC4, KC_SECRET_5,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, KC_MAC1, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+                               XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
+  ),
+
+// XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+// XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+// XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+//                            XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
 };
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+    return update_tri_layer_state(state, L_LOWER, L_RAISE, L_ADJUST);
+}
 
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -77,49 +93,6 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
             return false;
     }
 }
-
-#ifdef LEADER_ENABLE
-LEADER_EXTERNS();
-
-void matrix_scan_user(void) {
-  LEADER_DICTIONARY() {
-    leading = false;
-    leader_end();
-
-    // SEQ_ONE_KEY(KC_F) {
-    //   // Anything you can do in a macro.
-    //   SEND_STRING("QMK is awesome.");
-    // }
-    // SEQ_TWO_KEYS(KC_G, KC_D) {
-    //   SEND_STRING(SS_LCTL("a") SS_LCTL("c"));
-    // }
-    // SEQ_THREE_KEYS(KC_D, KC_D, KC_S) {
-    //   SEND_STRING("https://start.duckduckgo.com\n");
-    // }
-    // SEQ_TWO_KEYS(KC_A, KC_S) {
-    //   register_code(KC_LGUI);
-    //   register_code(KC_S);
-    //   unregister_code(KC_S);
-    //   unregister_code(KC_LGUI);
-    // }
-    SEQ_TWO_KEYS(KC_G, KC_S) {
-      SEND_STRING("git status");
-    }
-    SEQ_TWO_KEYS(KC_G, KC_C) {
-      SEND_STRING("git commit");
-    }
-    SEQ_TWO_KEYS(KC_G, KC_L) {
-      SEND_STRING("git log");
-    }
-    SEQ_THREE_KEYS(KC_G, KC_P, KC_U) {
-      SEND_STRING("git pull");
-    }
-    SEQ_THREE_KEYS(KC_G, KC_P, KC_S) {
-      SEND_STRING("git push");
-    }
-  }
-}
-#endif
 
 #ifdef OLED_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {
@@ -183,6 +156,9 @@ void render_layer_state(void) {
             break;
         case L_ADJUST:
             oled_write_ln_P(PSTR("Adjst"), false);
+            break;
+        case L_ONESHOT:
+            oled_write_ln_P(PSTR("1shot"), false);
             break;
         default:
             oled_write_ln_P(PSTR(""), false);

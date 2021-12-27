@@ -10,6 +10,11 @@ bool process_record_secrets(uint16_t keycode, keyrecord_t *record) {
   return true;
 }
 
+__attribute__ ((weak))
+bool process_caps_word(uint16_t keycode, keyrecord_t *record) {
+  return true;
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
 #ifdef MACROS_ENABLED
@@ -22,5 +27,17 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         break;
 #endif
     }
-    return process_record_keymap(keycode, record) && process_record_secrets(keycode, record);
+
+    if (!(
+#ifdef CAPSWORD_ENABLED
+        process_caps_word(keycode, record) &&
+#endif
+#ifdef SECRETS_ENABLED
+        process_record_secrets(keycode, record) &&
+#endif
+        process_record_keymap(keycode, record))) {
+        return false;
+    }
+
+    return true;
 }

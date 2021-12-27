@@ -49,7 +49,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_RAISE] = LAYOUT_split_3x6_3(
     KC_CAPS,  KC_F1,   KC_F2,  KC_F3,    KC_F4,   KC_F5,      _______, C(KC_LEFT), _______,  _______, C(KC_RGHT), OSL(L_ONESHOT),
-    _______,  KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,      _______,   KC_LEFT,  KC_DOWN,    KC_UP,    KC_RGHT, _______,
+    KC_CAPW,  KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,      _______,   KC_LEFT,  KC_DOWN,    KC_UP,    KC_RGHT, _______,
     _______,  KC_F11, KC_F12, DM_REC1, DM_PLY1, DM_RSTP,      _______,   KC_HOME,  KC_PGDN,  KC_PGUP,     KC_END, _______,
                                 _______, _______, _______,    _______, _______, _______
   ),
@@ -78,6 +78,22 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     return update_tri_layer_state(state, L_LOWER, L_RAISE, L_ADJUST);
 }
 
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case HOME_A:
+        case HOME_R:
+        case HOME_S:
+        case HOME_T:
+        case HOME_N:
+        case HOME_E:
+        case HOME_I:
+        case HOME_O:
+            return TAPPING_TERM + 50;
+        default:
+            return TAPPING_TERM;
+    }
+}
+
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LOW_SPC:
@@ -86,10 +102,8 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
         case CTL_ENT:
         case LALT_TB:
         case RALT_DL:
-            // Immediately select the hold action when another key is tapped.
             return true;
         default:
-            // Do not select the hold action when another key is tapped.
             return false;
     }
 }
@@ -170,7 +184,8 @@ void render_keylock_status(uint8_t led_usb_state) {
     oled_write_P(PSTR(" "), false);
     oled_write_P(PSTR("N"), led_usb_state & (1 << USB_LED_NUM_LOCK));
     oled_write_P(PSTR("C"), led_usb_state & (1 << USB_LED_CAPS_LOCK));
-    oled_write_ln_P(PSTR("S"), led_usb_state & (1 << USB_LED_SCROLL_LOCK));
+    oled_write_P(PSTR("W"), is_caps_word_enabled());
+    oled_write_P(PSTR("S"), led_usb_state & (1 << USB_LED_SCROLL_LOCK));
     #ifndef WPM_ENABLE
     oled_write_ln_P(PSTR(""), false);
     #endif

@@ -5,8 +5,11 @@
 #include "secrets_defs.h"
 #else
 static const char * const secret[] = {
-  "test1",
-  "test2"
+  "1",
+  "2",
+  "3",
+  "4",
+  "5"
 };
 #endif
 

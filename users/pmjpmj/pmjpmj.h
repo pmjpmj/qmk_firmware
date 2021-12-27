@@ -1,6 +1,14 @@
 #pragma once
 #include QMK_KEYBOARD_H
 
+#ifdef SECRETS_ENABLED
+#include "features/secrets.h"
+#endif
+
+#ifdef CAPSWORD_ENABLED
+#include "features/caps_word.h"
+#endif
+
 #if defined(KEYBOARD_handwired_tractyl_manuform)
 #    define PLACEHOLDER_SAFE_RANGE KEYMAP_SAFE_RANGE
 #else
@@ -15,12 +23,9 @@ enum userspace_custom_keycodes {
     KC_SECRET_4,                              // test4
     KC_SECRET_5,                              // test5
     KC_MACRO_1,
+    KC_CAPSWORD,
     NEW_SAFE_RANGE                            // use "NEWPLACEHOLDER for keymap specific codes
 };
-
-bool process_record_secrets(uint16_t keycode, keyrecord_t *record);
-bool process_record_keymap(uint16_t keycode, keyrecord_t *record);
-bool process_record_user(uint16_t keycode, keyrecord_t *record);
 
 #define KC_SEC1   KC_SECRET_1
 #define KC_SEC2   KC_SECRET_2
@@ -28,6 +33,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record);
 #define KC_SEC4   KC_SECRET_4
 #define KC_SEC5   KC_SECRET_5
 #define KC_MAC1   KC_MACRO_1
+#define KC_CAPW   KC_CAPSWORD
 
 // mod taps
 #define GUI_ESC MT(MOD_LGUI, KC_ESC)

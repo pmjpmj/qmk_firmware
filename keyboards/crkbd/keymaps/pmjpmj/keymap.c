@@ -5,45 +5,43 @@ enum Layers {
     L_BASE_COLEMAK_DH_HRM, L_BASE_COLEMAK_DH,  L_BASE_QWERTY, L_BASE_GAME, L_LOWER, L_RAISE, L_ADJUST, L_ONESHOT
 };
 
+#define LAYOUT_wrapped(...) LAYOUT(__VA_ARGS__)
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // base
 
-  [L_BASE_COLEMAK_DH_HRM] = LAYOUT_split_3x6_3(
-     KC_TAB,    KC_Q,    KC_W,    KC_F,     KC_P,  KC_B,      KC_J,   KC_L,    KC_U,    KC_Y, KC_SCLN, KC_BSPC,
-    GUI_ESC,  HOME_A,  HOME_R,  HOME_S,   HOME_T,  KC_G,      KC_M, HOME_N,  HOME_E,  HOME_I,  HOME_O, KC_QUOT,
-    KC_LSFT,    KC_Z,    KC_X,    KC_C,     KC_D,  KC_V,      KC_K,   KC_H, KC_COMM,  KC_DOT, KC_SLSH, SFT_ENT,
+  [L_BASE_COLEMAK_DH_HRM] = LAYOUT_wrapped(
+     KC_TAB, ______________COLEMAK_MOD_DH_L1____________,      ______________COLEMAK_MOD_DH_R1____________, KC_BSPC,
+    GUI_ESC, ______________COLEMAK_MOD_DH_HRM_L2________,      ______________COLEMAK_MOD_DH_HRM_R2________, KC_QUOT,
+    KC_LSFT, ______________COLEMAK_MOD_DH_L3____________,      ______________COLEMAK_MOD_DH_R3____________, SFT_ENT,
                       LALT_TB, LOW_SPC, CTL_SPC,      CTL_ENT, RAI_BSP, RALT_DL
-
   ),
 
-  [L_BASE_COLEMAK_DH] = LAYOUT_split_3x6_3(
-     KC_TAB,  KC_Q,  KC_W,  KC_F,   KC_P,  KC_B,      KC_J,   KC_L,    KC_U,    KC_Y, KC_SCLN, KC_BSPC,
-    GUI_ESC,  KC_A,  KC_R,  KC_S,   KC_T,  KC_G,      KC_M,   KC_N,    KC_E,    KC_I,    KC_O, KC_QUOT,
-    KC_LSFT,  KC_Z,  KC_X,  KC_C,   KC_D,  KC_V,      KC_K,   KC_H, KC_COMM,  KC_DOT, KC_SLSH, SFT_ENT,
+  [L_BASE_COLEMAK_DH] = LAYOUT_wrapped(
+     KC_TAB,  ______________COLEMAK_MOD_DH_L1____________,      ______________COLEMAK_MOD_DH_R1____________, KC_BSPC,
+    GUI_ESC,  ______________COLEMAK_MOD_DH_L2____________,      ______________COLEMAK_MOD_DH_R2____________, KC_QUOT,
+    KC_LSFT,  ______________COLEMAK_MOD_DH_L3____________,      ______________COLEMAK_MOD_DH_R3____________, SFT_ENT,
                       LALT_TB, LOW_SPC, CTL_SPC,      CTL_ENT, RAI_BSP, RALT_DL
-
   ),
 
-  [L_BASE_QWERTY] = LAYOUT_split_3x6_3(
-     KC_TAB,  KC_Q,  KC_W,  KC_E,   KC_R,  KC_T,      KC_Y,   KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
-    GUI_ESC,  KC_A,  KC_S,  KC_D,   KC_F,  KC_G,      KC_H,   KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
-    KC_LSFT,  KC_Z,  KC_X,  KC_C,   KC_V,  KC_B,      KC_N,   KC_M, KC_COMM,  KC_DOT, KC_SLSH, SFT_ENT,
+  [L_BASE_QWERTY] = LAYOUT_wrapped(
+     KC_TAB,  _________________QWERTY_L1_________________,      _________________QWERTY_R1_________________, KC_BSPC,
+    GUI_ESC,  _________________QWERTY_L2_________________,      _________________QWERTY_R2_________________, KC_QUOT,
+    KC_LSFT,  _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, SFT_ENT,
                       LALT_TB, LOW_SPC, CTL_SPC,      CTL_ENT, RAI_BSP, RALT_DL
-
   ),
 
-  [L_BASE_GAME] = LAYOUT_split_3x6_3(
-     KC_TAB,  KC_Q,  KC_W,  KC_E,   KC_R,  KC_T,      KC_Y,   KC_U,    KC_I,    KC_O,    KC_P, KC_BSPC,
-    KC_LCTL,  KC_A,  KC_S,  KC_D,   KC_F,  KC_G,      KC_H,   KC_J,    KC_K,    KC_L, KC_SCLN, KC_QUOT,
-    KC_LSFT,  KC_Z,  KC_X,  KC_C,   KC_V,  KC_B,      KC_N,   KC_M, KC_COMM,  KC_DOT, KC_SLSH, SFT_ENT,
+  [L_BASE_GAME] = LAYOUT_wrapped(
+     KC_TAB,  _________________QWERTY_L1_________________,      _________________QWERTY_R1_________________, KC_BSPC,
+    KC_LCTL,  _________________QWERTY_L2_________________,      _________________QWERTY_R2_________________, KC_QUOT,
+    KC_LSFT,  _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, SFT_ENT,
                        LALT_TB, LOW_SPC, KC_SPC,      CTL_ENT, RAI_BSP, RALT_DL
-
   ),
 
-  [L_LOWER] = LAYOUT_split_3x6_3(
-     KC_GRV,    KC_1,    KC_2,    KC_3,    KC_4,    KC_5,       KC_6,    KC_7,    KC_8,    KC_9,    KC_0, KC_TILD,
-    _______, KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC,    KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN, KC_PIPE,
-    _______, KC_LBRC, KC_RBRC, KC_MINS,  KC_EQL, KC_BSLS,    KC_PIPE, KC_PLUS, KC_UNDS, KC_LCBR, KC_RCBR, _______,
+  [L_LOWER] = LAYOUT_wrapped(
+     KC_GRV, ___________________NUM_L1__________________,    ___________________NUM_R1__________________, KC_TILD,
+    _______, ___________________SYM_L1__________________,    ___________________SYM_R1__________________, KC_PIPE,
+    _______, ___________________SYM_L2__________________,    ___________________SYM_R2__________________, _______,
                                _______, _______, _______,    _______, _______, _______
   ),
 

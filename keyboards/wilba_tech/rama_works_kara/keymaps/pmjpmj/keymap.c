@@ -93,32 +93,44 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     return update_tri_layer_state(state, L_LOWER, L_RAISE, L_ADJUST);
 }
 
+#ifdef TAPPING_TERM_PER_KEY
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case HOME_A:
         case HOME_R:
+        case HOME_I:
+        case HOME_O:
+            return TAPPING_TERM + 50;
         case HOME_S:
         case HOME_T:
         case HOME_N:
         case HOME_E:
-        case HOME_I:
-        case HOME_O:
-            return TAPPING_TERM + 50;
+            return TAPPING_TERM + 20;
         default:
             return TAPPING_TERM;
     }
 }
+#endif
 
+#ifdef PERMISSIVE_HOLD_PER_KEY
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case LOW_SPC:
-        case RAI_BSP:
+        case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
         case CTL_SPC:
-        case CTL_ENT:
-        case LALT_TB:
-        case RALT_DL:
             return true;
         default:
             return false;
     }
 }
+#endif
+
+#ifdef HOLD_ON_OTHER_KEY_PRESS_PER_KEY
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
+            return true;
+        default:
+            return false;
+    }
+}
+#endif

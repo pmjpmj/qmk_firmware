@@ -14,28 +14,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_TAB, ______________COLEMAK_MOD_DH_L1____________,      ______________COLEMAK_MOD_DH_R1____________, KC_BSPC,
     GUI_ESC, ______________COLEMAK_MOD_DH_HRM_L2________,      ______________COLEMAK_MOD_DH_HRM_R2________, KC_QUOT,
     KC_LSFT, ______________COLEMAK_MOD_DH_L3____________,      ______________COLEMAK_MOD_DH_R3____________, SFT_ENT,
-                      LALT_TB, LOW_SPC, CTL_SPC,      CTL_ENT, RAI_BSP, RALT_DL
+                               LALT_TB, LOW_SPC, CTL_SPC,      CTL_ENT, RAI_BSP, RALT_DL
   ),
 
   [L_BASE_COLEMAK_DH] = LAYOUT_wrapped(
      KC_TAB,  ______________COLEMAK_MOD_DH_L1____________,      ______________COLEMAK_MOD_DH_R1____________, KC_BSPC,
     GUI_ESC,  ______________COLEMAK_MOD_DH_L2____________,      ______________COLEMAK_MOD_DH_R2____________, KC_QUOT,
     KC_LSFT,  ______________COLEMAK_MOD_DH_L3____________,      ______________COLEMAK_MOD_DH_R3____________, SFT_ENT,
-                      LALT_TB, LOW_SPC, CTL_SPC,      CTL_ENT, RAI_BSP, RALT_DL
+                                LALT_TB, LOW_SPC, CTL_SPC,      CTL_ENT, RAI_BSP, RALT_DL
   ),
 
   [L_BASE_QWERTY] = LAYOUT_wrapped(
      KC_TAB,  _________________QWERTY_L1_________________,      _________________QWERTY_R1_________________, KC_BSPC,
     GUI_ESC,  _________________QWERTY_L2_________________,      _________________QWERTY_R2_________________, KC_QUOT,
     KC_LSFT,  _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, SFT_ENT,
-                      LALT_TB, LOW_SPC, CTL_SPC,      CTL_ENT, RAI_BSP, RALT_DL
+                                LALT_TB, LOW_SPC, CTL_SPC,      CTL_ENT, RAI_BSP, RALT_DL
   ),
 
   [L_BASE_GAME] = LAYOUT_wrapped(
      KC_TAB,  _________________QWERTY_L1_________________,      _________________QWERTY_R1_________________, KC_BSPC,
     KC_LCTL,  _________________QWERTY_L2_________________,      _________________QWERTY_R2_________________, KC_QUOT,
     KC_LSFT,  _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, SFT_ENT,
-                       LALT_TB, LOW_SPC, KC_SPC,      CTL_ENT, RAI_BSP, RALT_DL
+                                 LALT_TB, LOW_SPC, KC_SPC,      CTL_ENT, RAI_BSP, RALT_DL
   ),
 
   [L_LOWER] = LAYOUT_wrapped(
@@ -76,22 +76,26 @@ layer_state_t layer_state_set_user(layer_state_t state) {
     return update_tri_layer_state(state, L_LOWER, L_RAISE, L_ADJUST);
 }
 
+#ifdef TAPPING_TERM_PER_KEY
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case HOME_A:
         case HOME_R:
+        case HOME_I:
+        case HOME_O:
+            return TAPPING_TERM + 50;
         case HOME_S:
         case HOME_T:
         case HOME_N:
         case HOME_E:
-        case HOME_I:
-        case HOME_O:
-            return TAPPING_TERM + 50;
+            return TAPPING_TERM + 20;
         default:
             return TAPPING_TERM;
     }
 }
+#endif
 
+#ifdef PERMISSIVE_HOLD_PER_KEY
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case LOW_SPC:
@@ -105,6 +109,32 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
             return false;
     }
 }
+#endif
+
+#ifdef HOLD_ON_OTHER_KEY_PRESS_PER_KEY
+bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
+            return true;
+        default:
+            return false;
+    }
+}
+#endif
+
+#ifdef TAPPING_FORCE_HOLD_PER_KEY
+bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case CTL_SPC:
+        case RAI_BSP:
+        case LALT_TB:
+        case RALT_DL:
+            return false;
+        default:
+            return true;
+    }
+}
+#endif
 
 #ifdef OLED_ENABLE
 oled_rotation_t oled_init_user(oled_rotation_t rotation) {

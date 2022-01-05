@@ -73,6 +73,11 @@ enum userspace_custom_keycodes {
 #define HOME_I LALT_T(KC_I)
 #define HOME_O RGUI_T(KC_O)
 
+// other layer home row mods
+#define HOME_F6 LGUI_T(KC_F6)
+#define HOME_F7 LALT_T(KC_F7)
+#define HOME_F8 LCTL_T(KC_F8)
+#define HOME_F9 LSFT_T(KC_F9)
 
 // clang-format off
 #define _________________QWERTY_L1_________________       KC_Q,    KC_W,    KC_E,    KC_R,    KC_T

@@ -52,6 +52,7 @@ enum userspace_custom_keycodes {
 #define RAI_BSP LT(L_RAISE, KC_BSPC)
 #define MO_ADJT MO(L_ADJUST)
 
+#define LALT_EC MT(MOD_LALT, KC_ESC)
 #define LALT_TB MT(MOD_LALT, KC_TAB)
 #define RALT_DL MT(MOD_RALT, KC_DEL)
 

@@ -10,28 +10,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_TAB, ______________COLEMAK_MOD_DH_L1____________,      ______________COLEMAK_MOD_DH_R1____________, KC_BSPC,
     GUI_ESC, ______________COLEMAK_MOD_DH_HRM_L2________,      ______________COLEMAK_MOD_DH_HRM_R2________, KC_QUOT,
     KC_LSFT, ______________COLEMAK_MOD_DH_L3____________,      ______________COLEMAK_MOD_DH_R3____________, SFT_ENT,
-                               LALT_TB, LOW_SPC, CTL_SPC,      CTL_ENT, RAI_BSP, RALT_DL
+                               LALT_EC, LOW_SPC, CTL_TAB,      CTL_ENT, RAI_BSP, RALT_DL
   ),
 
   [L_BASE_COLEMAK_DH] = LAYOUT_wrapped(
      KC_TAB, ______________COLEMAK_MOD_DH_L1____________,      ______________COLEMAK_MOD_DH_R1____________, KC_BSPC,
     GUI_ESC, ______________COLEMAK_MOD_DH_L2____________,      ______________COLEMAK_MOD_DH_R2____________, KC_QUOT,
     KC_LSFT, ______________COLEMAK_MOD_DH_L3____________,      ______________COLEMAK_MOD_DH_R3____________, SFT_ENT,
-                                LALT_TB, LOW_SPC, CTL_SPC,      CTL_ENT, RAI_BSP, RALT_DL
+                                LALT_EC, LOW_SPC, CTL_TAB,      CTL_ENT, RAI_BSP, RALT_DL
   ),
 
   [L_BASE_QWERTY] = LAYOUT_wrapped(
      KC_TAB, _________________QWERTY_L1_________________,      _________________QWERTY_R1_________________, KC_BSPC,
     GUI_ESC, _________________QWERTY_L2_________________,      _________________QWERTY_R2_________________, KC_QUOT,
     KC_LSFT, _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, SFT_ENT,
-                                LALT_TB, LOW_SPC, CTL_SPC,      CTL_ENT, RAI_BSP, RALT_DL
+                                LALT_EC, LOW_SPC, CTL_TAB,      CTL_ENT, RAI_BSP, RALT_DL
   ),
 
   [L_BASE_GAME] = LAYOUT_wrapped(
      KC_TAB, _________________QWERTY_L1_________________,      _________________QWERTY_R1_________________, KC_BSPC,
     KC_LCTL, _________________QWERTY_L2_________________,      _________________QWERTY_R2_________________, KC_QUOT,
     KC_LSFT, _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, SFT_ENT,
-                                 LALT_TB, LOW_SPC, KC_SPC,      CTL_ENT, RAI_BSP, RALT_DL
+                                 LALT_EC, LOW_SPC, KC_TAB,      CTL_ENT, RAI_BSP, RALT_DL
   ),
 
   [L_LOWER] = LAYOUT_wrapped(

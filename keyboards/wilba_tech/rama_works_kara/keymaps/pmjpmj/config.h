@@ -33,3 +33,6 @@
 // Recommended for heavy chording.
 #define QMK_KEYS_PER_SCAN 4
 #define USB_POLLING_INTERVAL_MS 1
+
+// #undef DEBOUNCE
+// #define DEBOUNCE 0

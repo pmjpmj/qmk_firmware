@@ -39,3 +39,18 @@ void disable_caps_word(void);
 void toggle_caps_word(void);
 
 bool process_record_caps_word(uint16_t keycode, const keyrecord_t *record);
+
+void caps_word_set(bool active);
+
+// An optional callback that gets called when Caps Word turns on or off. This is
+// useful to represent the current Caps Word state, e.g. by setting an LED or
+// playing a sound. In your keymap, define
+//
+//   void caps_word_set_user(bool active) {
+//     if (active) {
+//       // Do something when Caps Word activates.
+//     } else {
+//       // Do something when Caps Word deactivates.
+//     }
+//   }
+void caps_word_set_user(bool active);

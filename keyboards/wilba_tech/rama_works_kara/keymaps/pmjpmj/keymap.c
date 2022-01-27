@@ -29,11 +29,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 
 	[L_BASE_COLEMAK_DH] = LAYOUT_wrapped(
-		KC_GRV,  ___________________NUM_L1__________________,      ___________________NUM_R1__________________, KC_MINS, KC_EQL,  KC_BSLS, KC_DEL,
+		KC_ESC,  ___________________NUM_L1__________________,      ___________________NUM_R1__________________, KC_MINS, KC_EQL,  KC_BSLS, KC_DEL,
 		KC_TAB,  ______________COLEMAK_MOD_DH_L1____________,      ______________COLEMAK_MOD_DH_R1____________, KC_LBRC, KC_RBRC, KC_BSPC,
-		GUI_ESC, ______________COLEMAK_MOD_DH_L2____________,      ______________COLEMAK_MOD_DH_R2____________, KC_QUOT, KC_ENT,
+		KC_LCTL, ______________COLEMAK_MOD_DH_L2____________,      ______________COLEMAK_MOD_DH_R2____________, KC_QUOT, KC_ENT,
 		KC_LSFT, ______________COLEMAK_MOD_DH_L3____________,      ______________COLEMAK_MOD_DH_R3____________, KC_RSFT, LOWER,
-				KC_LGUI, KC_LALT,                            CTL_SPC,                             KC_RALT, RAISE),
+				KC_LGUI, KC_LALT,                            KC_SPC,                             KC_RALT, RAISE),
 
     [L_BASE_COLEMAK_DH_ANSI_HRM] = LAYOUT_wrapped(
 		KC_GRV,  ___________________NUM_L1__________________,      ___________________NUM_R1__________________, KC_MINS, KC_EQL,  KC_BSLS, KC_DEL,
@@ -43,11 +43,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 				KC_LGUI, KC_LALT,                            CTL_SPC,                             KC_RALT, RAISE),
 
     [L_BASE_COLEMAK_DH_ANSI] = LAYOUT_wrapped(
-		KC_GRV,  ___________________NUM_L1__________________,      ___________________NUM_R1__________________, KC_MINS, KC_EQL,  KC_BSLS, KC_DEL,
+		KC_ESC,  ___________________NUM_L1__________________,      ___________________NUM_R1__________________, KC_MINS, KC_EQL,  KC_BSLS, KC_DEL,
 		KC_TAB,  ______________COLEMAK_MOD_DH_L1____________,      ______________COLEMAK_MOD_DH_R1____________, KC_LBRC, KC_RBRC, KC_BSPC,
-		GUI_ESC, ______________COLEMAK_MOD_DH_L2____________,      ______________COLEMAK_MOD_DH_R2____________, KC_QUOT, KC_ENT,
+		KC_LCTL, ______________COLEMAK_MOD_DH_L2____________,      ______________COLEMAK_MOD_DH_R2____________, KC_QUOT, KC_ENT,
 		KC_LSFT, ______________COLEMAK_MOD_DH_ANSI_L3_______,      ______________COLEMAK_MOD_DH_R3____________, KC_RSFT, LOWER,
-				KC_LGUI, KC_LALT,                            CTL_SPC,                             KC_RALT, RAISE),
+				KC_LGUI, KC_LALT,                            KC_SPC,                             KC_RALT, RAISE),
 
     [L_BASE_QWERTY] = LAYOUT_wrapped(
 		KC_GRV,  ___________________NUM_L1__________________,      ___________________NUM_R1__________________, KC_MINS, KC_EQL,  KC_BSLS, KC_DEL,
@@ -76,8 +76,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[L_ADJUST] = LAYOUT_60_hhkb(
 		RESET,    EF_DEC,  EF_INC, H1_DEC,  H1_INC,  H2_DEC,  H2_INC,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, BR_DEC,  BR_INC,  XXXXXXX, XXXXXXX,
 		XXXXXXX, XXXXXXX, XXXXXXX, S1_DEC,  S1_INC,  S2_DEC,  S2_INC,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, ES_DEC,  ES_INC,  XXXXXXX,
-		CG_TOGG, BL_GAME, BL_CMDR, BL_CDAH, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-		XXXXXXX, BL_QWTY, BL_CMDH, BL_CMDA, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+		CG_TOGG, BL_GAME, BL_CMDH, BL_CMDA, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+		XXXXXXX, BL_QWTY, BL_CMDR, BL_CDAH, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
 				XXXXXXX, XXXXXXX,                            XXXXXXX,                            XXXXXXX, XXXXXXX),
 
     [L_ONESHOT] = LAYOUT_60_hhkb(

@@ -20,6 +20,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                 LALT_EC, LOW_SPC, CTL_TAB,      SFT_ENT, RAI_BSP, RALT_DL
   ),
 
+  [L_BASE_QWERTY_HRM] = LAYOUT_wrapped(
+     KC_TAB, _________________QWERTY_L1_________________,      _________________QWERTY_R1_________________, KC_BSPC,
+    GUI_ESC, _________________QWERTY_HRM_L2_____________,      _________________QWERTY_HRM_R2_____________, KC_QUOT,
+    KC_LSFT, _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, SFT_ENT,
+                               LALT_EC, LOW_SPC, CTL_TAB,      SFT_ENT, RAI_BSP, RALT_DL
+  ),
+
   [L_BASE_QWERTY] = LAYOUT_wrapped(
      KC_TAB, _________________QWERTY_L1_________________,      _________________QWERTY_R1_________________, KC_BSPC,
     GUI_ESC, _________________QWERTY_L2_________________,      _________________QWERTY_R2_________________, KC_QUOT,
@@ -44,7 +51,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_RAISE] = LAYOUT_split_3x6_3(
     KC_CAPS,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,          KC_EQL, KC_LPRN,  KC_LCBR, KC_RCBR, KC_RPRN, OSL(L_ONESHOT),
     KC_CAPW, HOME_F6, HOME_F7, HOME_F8, HOME_F9,  KC_F10,      A(KC_LEFT), KC_LEFT,  KC_DOWN,   KC_UP, KC_RGHT, A(KC_RGHT),
-    _______,  KC_F11,  KC_F12, DM_REC1, DM_PLY1, DM_RSTP,         _______, KC_HOME,  KC_PGDN, KC_PGUP,  KC_END, _______,
+    _______,  KC_F11,  KC_F12, DM_REC1, DM_PLY1, DM_RSTP,         KC_LANG1, KC_HOME,  KC_PGDN, KC_PGUP,  KC_END, _______,
                                 _______, _______, _______,    _______, _______, _______
   ),
 
@@ -56,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L_ONESHOT] = LAYOUT_split_3x6_3(
-    CG_TOGG, BL_CMDR, BL_CMDH, BL_QWTY, BL_GAME, XXXXXXX,    KC_SEC1, KC_SEC2, KC_SEC3, KC_SEC4, KC_SEC5, XXXXXXX,
+    CG_TOGG, BL_CMDR, BL_CMDH, BL_QWTH, BL_QWTY, BL_GAME,    KC_SEC1, KC_SEC2, KC_SEC3, KC_SEC4, KC_SEC5, XXXXXXX,
     CMB_TOG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    KC_MAC1, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     KC_ASTG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
                                XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
@@ -79,11 +86,15 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
         case HOME_R:
         case HOME_I:
         case HOME_O:
+        // case HOMQ_A:
+        case HOMQ_S:
+        case HOMQ_L:
+        case HOMQ_SCLN:
             return TAPPING_TERM + 50;
         case HOME_S:
-        // case HOME_T:
-        // case HOME_N:
         case HOME_E:
+        case HOMQ_D:
+        case HOMQ_K:
             return TAPPING_TERM + 20;
         default:
             return TAPPING_TERM;

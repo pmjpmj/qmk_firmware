@@ -3,7 +3,7 @@
 
 
 enum Layers {
-    L_BASE_GAME, L_BASE_COLEMAK_DH_HRM, L_BASE_COLEMAK_DH, L_BASE_COLEMAK_DH_ANSI_HRM, L_BASE_COLEMAK_DH_ANSI, L_BASE_QWERTY, L_LOWER, L_RAISE, L_ADJUST, L_ONESHOT
+    L_BASE, L_BASE_GAME, L_BASE_COLEMAK_DH_HRM, L_BASE_COLEMAK_DH, L_BASE_COLEMAK_DH_ANSI_HRM, L_BASE_COLEMAK_DH_ANSI, L_BASE_QWERTY, L_LOWER, L_RAISE, L_ADJUST, L_ONESHOT
 };
 
 #define LAYOUT LAYOUT_60_hhkb
@@ -12,13 +12,19 @@ enum Layers {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	// Default layer
-	[L_BASE_GAME] = LAYOUT_wrapped(
+	[L_BASE] = LAYOUT_wrapped(
 		KC_ESC,  ___________________NUM_L1__________________,      ___________________NUM_R1__________________, KC_MINS, KC_EQL,  KC_BSLS, KC_DEL,
 		KC_TAB,  _________________QWERTY_L1_________________,      _________________QWERTY_R1_________________, KC_LBRC, KC_RBRC, KC_BSPC,
 		KC_LCTL, _________________QWERTY_L2_________________,      _________________QWERTY_R2_________________, KC_QUOT, KC_ENT,
 		KC_LSFT, _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, KC_RSFT, LOWER,
 				KC_LGUI, KC_LALT,                            KC_SPC,                             KC_RALT, RAISE),
 
+	[L_BASE_GAME] = LAYOUT_wrapped(
+		KC_GRV,  ___________________NUM_L1__________________,      ___________________NUM_R1__________________, KC_MINS, KC_EQL,  KC_BSLS, KC_DEL,
+		KC_TAB,  _________________QWERTY_L1_________________,      _________________QWERTY_R1_________________, KC_LBRC, KC_RBRC, KC_BSPC,
+		KC_LCTL, _________________QWERTY_L2_________________,      _________________QWERTY_R2_________________, KC_QUOT, KC_ENT,
+		KC_LSFT, _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, KC_RSFT, LOWER,
+				KC_LGUI, KC_LALT,                            KC_SPC,                             KC_RALT, RAISE),
 
 	[L_BASE_COLEMAK_DH_HRM] = LAYOUT_wrapped(
 		KC_GRV,  ___________________NUM_L1__________________,      ___________________NUM_R1__________________, KC_MINS, KC_EQL,  KC_BSLS, KC_DEL,
@@ -66,17 +72,17 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 	// Fn2 Layer
 	[L_RAISE] = LAYOUT_60_hhkb(
-		DM_RSTP, DM_REC1, DM_REC2, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, OSL(L_ONESHOT),
-		KC_CAPW, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+		KC_ESC, DM_REC1, DM_REC2, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, OSL(L_ONESHOT),
+		KC_CAPW, DM_RSTP, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
 		_______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
-		_______, _______, _______, _______, _______, _______, _______, _______, _______, C(KC_LEFT), C(KC_RGHT), _______, _______,
-				_______, _______,                            _______,                            _______, _______),
+		_______, _______, _______, _______, _______, _______, _______, _______, C(KC_LEFT), C(KC_RGHT), C(KC_UP), _______, _______,
+				_______, _______,                            _______,                            KC_LANG1, _______),
 
 	// Fn3 Layer
 	[L_ADJUST] = LAYOUT_60_hhkb(
 		RESET,    EF_DEC,  EF_INC, H1_DEC,  H1_INC,  H2_DEC,  H2_INC,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, BR_DEC,  BR_INC,  XXXXXXX, XXXXXXX,
-		XXXXXXX, XXXXXXX, XXXXXXX, S1_DEC,  S1_INC,  S2_DEC,  S2_INC,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, ES_DEC,  ES_INC,  XXXXXXX,
-		CG_TOGG, BL_GAME, BL_CMDH, BL_CMDA, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+		XXXXXXX, BL_GAME, XXXXXXX, S1_DEC,  S1_INC,  S2_DEC,  S2_INC,  XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, ES_DEC,  ES_INC,  XXXXXXX,
+		CG_TOGG, BL_BASE, BL_CMDH, BL_CMDA, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
 		XXXXXXX, BL_QWTY, BL_CMDR, BL_CDAH, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
 				XXXXXXX, XXXXXXX,                            XXXXXXX,                            XXXXXXX, XXXXXXX),
 

@@ -7,58 +7,58 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // base
 
   [L_BASE_COLEMAK_DH_HRM] = LAYOUT_wrapped(
-     KC_TAB, ______________COLEMAK_MOD_DH_L1____________,      ______________COLEMAK_MOD_DH_R1____________, KC_BSPC,
+     KC_GRV, ______________COLEMAK_MOD_DH_L1____________,      ______________COLEMAK_MOD_DH_R1____________, KC_BSLS,
     GUI_ESC, ______________COLEMAK_MOD_DH_HRM_L2________,      ______________COLEMAK_MOD_DH_HRM_R2________, KC_QUOT,
-    KC_LSFT, ______________COLEMAK_MOD_DH_L3____________,      ______________COLEMAK_MOD_DH_R3____________, SFT_ENT,
+    KC_LSFT, ______________COLEMAK_MOD_DH_L3____________,      ______________COLEMAK_MOD_DH_R3____________, KC_RSFT,
                                LALT_EC, LOW_SPC, CTL_TAB,      SFT_ENT, RAI_BSP, RALT_DL
   ),
 
   [L_BASE_COLEMAK_DH] = LAYOUT_wrapped(
-     KC_TAB, ______________COLEMAK_MOD_DH_L1____________,      ______________COLEMAK_MOD_DH_R1____________, KC_BSPC,
+     KC_GRV, ______________COLEMAK_MOD_DH_L1____________,      ______________COLEMAK_MOD_DH_R1____________, KC_BSLS,
     GUI_ESC, ______________COLEMAK_MOD_DH_L2____________,      ______________COLEMAK_MOD_DH_R2____________, KC_QUOT,
-    KC_LSFT, ______________COLEMAK_MOD_DH_L3____________,      ______________COLEMAK_MOD_DH_R3____________, SFT_ENT,
-                                LALT_EC, LOW_SPC, CTL_TAB,      SFT_ENT, RAI_BSP, RALT_DL
+    KC_LSFT, ______________COLEMAK_MOD_DH_L3____________,      ______________COLEMAK_MOD_DH_R3____________, KC_RSFT,
+                                LALT_EC, LOW_SPC, CTL_TAB,     SFT_ENT, RAI_BSP, RALT_DL
   ),
 
   [L_BASE_QWERTY_HRM] = LAYOUT_wrapped(
-     KC_TAB, _________________QWERTY_L1_________________,      _________________QWERTY_R1_________________, KC_BSPC,
+     KC_GRV, _________________QWERTY_L1_________________,      _________________QWERTY_R1_________________, KC_BSLS,
     GUI_ESC, _________________QWERTY_HRM_L2_____________,      _________________QWERTY_HRM_R2_____________, KC_QUOT,
-    KC_LSFT, _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, SFT_ENT,
+    KC_LSFT, _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, KC_RSFT,
                                LALT_EC, LOW_SPC, CTL_TAB,      SFT_ENT, RAI_BSP, RALT_DL
   ),
 
   [L_BASE_QWERTY] = LAYOUT_wrapped(
-     KC_TAB, _________________QWERTY_L1_________________,      _________________QWERTY_R1_________________, KC_BSPC,
+     KC_GRV, _________________QWERTY_L1_________________,      _________________QWERTY_R1_________________, KC_BSLS,
     GUI_ESC, _________________QWERTY_L2_________________,      _________________QWERTY_R2_________________, KC_QUOT,
-    KC_LSFT, _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, SFT_ENT,
+    KC_LSFT, _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, KC_RSFT,
                                LALT_EC, LOW_SPC, CTL_TAB,      SFT_ENT, RAI_BSP, RALT_DL
   ),
 
   [L_BASE_GAME] = LAYOUT_wrapped(
-     KC_TAB, _________________QWERTY_L1_________________,      _________________QWERTY_R1_________________, KC_BSPC,
+     KC_TAB, _________________QWERTY_L1_________________,      _________________QWERTY_R1_________________, KC_BSLS,
     KC_LCTL, _________________QWERTY_L2_________________,      _________________QWERTY_R2_________________, KC_QUOT,
-    KC_LSFT, _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, SFT_ENT,
+    KC_LSFT, _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, KC_RSFT,
                                 LALT_EC, LOW_SPC, KC_TAB,      SFT_ENT, RAI_BSP, RALT_DL
   ),
 
   [L_LOWER] = LAYOUT_wrapped(
-     KC_GRV, ___________________NUM_L1__________________,    ___________________NUM_R1__________________, KC_TILD,
-    _______, ___________________SYM_L1__________________,    ___________________SYM_R1__________________, KC_PIPE,
+    KC_TILD, ___________________NUM_L1__________________,    ___________________NUM_R1__________________, KC_PIPE,
+    _______, ___________________SYM_L1__________________,    ___________________SYM_R1__________________, _______,
     _______, ___________________SYM_L2__________________,    ___________________SYM_R2__________________, _______,
                                _______, _______, _______,    _______, _______, _______
   ),
 
   [L_RAISE] = LAYOUT_split_3x6_3(
-    KC_CAPS,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,          KC_EQL, KC_LPRN,  KC_LCBR, KC_RCBR, KC_RPRN, OSL(L_ONESHOT),
-    KC_CAPW, HOME_F6, HOME_F7, HOME_F8, HOME_F9,  KC_F10,      A(KC_LEFT), KC_LEFT,  KC_DOWN,   KC_UP, KC_RGHT, A(KC_RGHT),
-    _______,  KC_F11,  KC_F12, DM_REC1, DM_PLY1, DM_RSTP,         KC_LANG1, KC_HOME,  KC_PGDN, KC_PGUP,  KC_END, _______,
+    KC_CAPS,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,     KC_PGUP, A(KC_LEFT),   KC_UP, A(KC_RGHT), KC_PGUP, OSL(L_ONESHOT),
+    KC_CAPW, HOME_F6, HOME_F7, HOME_F8, HOME_F9,  KC_F10,     KC_PGDN,    KC_LEFT, KC_DOWN,    KC_RGHT, KC_PGDN, _______,
+    _______,  KC_F11,  KC_F12, DM_REC1, DM_PLY1, DM_RSTP,     KC_LANG1,   KC_HOME, _______,     KC_END, _______, _______,
                                 _______, _______, _______,    _______, _______, _______
   ),
 
   [L_ADJUST] = LAYOUT_split_3x6_3(
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, KC_INS,  KC_DEL,
-    RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, RGB_SPI, CMB_TOG,    XXXXXXX, KC_VOLD, KC_VOLU, KC_MUTE, XXXXXXX, XXXXXXX,
-    RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, RGB_SPD, KC_ASTG,    XXXXXXX, KC_MPRV, KC_MNXT, KC_MPLY, KC_MSTP, XXXXXXX,
+    CG_TOGG, BL_CMDR, BL_CMDH, BL_QWTH, BL_QWTY, BL_GAME,    KC_SEC1, KC_SEC2, KC_SEC3, KC_SEC4, KC_SEC5, XXXXXXX,
+    CMB_TOG, KC_MAC1, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, KC_VOLD, KC_VOLU, KC_MUTE, XXXXXXX, XXXXXXX,
+    KC_ASTG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    NK_TOGG, KC_MPRV, KC_MNXT, KC_MPLY, KC_MSTP, XXXXXXX,
                                XXXXXXX, _______, XXXXXXX,    XXXXXXX, _______, XXXXXXX
   ),
 
@@ -69,10 +69,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
   ),
 
-// XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-// XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-// XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-//                            XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
 };
 
 layer_state_t layer_state_set_user(layer_state_t state) {

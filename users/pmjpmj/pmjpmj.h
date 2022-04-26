@@ -128,8 +128,8 @@ enum userspace_custom_keycodes {
 #define ___________________SYM_L1__________________       KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC
 #define ___________________SYM_R1__________________       KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN
 
-#define ___________________SYM_L2__________________       KC_LBRC, KC_RBRC, KC_MINS,  KC_EQL, KC_BSLS
-#define ___________________SYM_R2__________________       KC_PIPE, KC_PLUS, KC_UNDS, KC_LCBR, KC_RCBR
+#define ___________________SYM_L2__________________       KC_MINS, KC_PLUS, KC_UNDS,  KC_EQL, KC_LABK
+#define ___________________SYM_R2__________________       KC_RABK, KC_LCBR, KC_RCBR, KC_LBRC, KC_RBRC
 
 #define ___________________FNC_L1__________________       KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5
 #define ___________________FNC_R1__________________       KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10

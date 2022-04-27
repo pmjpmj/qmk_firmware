@@ -57,6 +57,11 @@ enum userspace_custom_keycodes {
 #define RALT_DL MT(MOD_RALT, KC_DEL)
 #define RCTL_DL MT(MOD_RCTL, KC_DEL)
 
+#define LSFT_CB MT(MOD_LSFT, KC_LCBR)
+#define RSFT_CB MT(MOD_RSFT, KC_RCBR)
+#define LSFT_BC MT(MOD_LSFT, KC_LBRC)
+#define RSFT_BC MT(MOD_RSFT, KC_RBRC)
+
 // layer codes
 #define BL_CMDH DF(L_BASE_COLEMAK_DH)
 #define BL_CMDA DF(L_BASE_COLEMAK_DH_ANSI)

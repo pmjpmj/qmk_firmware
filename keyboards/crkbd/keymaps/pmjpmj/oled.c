@@ -67,9 +67,6 @@ void render_layer_state(void) {
         case L_ADJUST:
             oled_write_ln_P(PSTR("Adjst"), false);
             break;
-        case L_ONESHOT:
-            oled_write_ln_P(PSTR("1shot"), false);
-            break;
         default:
             oled_write_ln_P(PSTR(""), false);
     }
@@ -107,18 +104,10 @@ void render_mod_status(uint8_t modifiers) {
 }
 
 void render_bootmagic_status(void) {
-    /* Show Ctrl-Gui Swap options */
-    static const char PROGMEM logo[][2][3] = {
-        {{0x97, 0x98, 0}, {0xb7, 0xb8, 0}},
-        {{0x95, 0x96, 0}, {0xb5, 0xb6, 0}},
-    };
     oled_write_P(PSTR("BTMGK"), false);
-    oled_write_P(PSTR(" "), false);
-    oled_write_P(logo[0][0], !keymap_config.swap_lctl_lgui);
-    oled_write_P(logo[1][0], keymap_config.swap_lctl_lgui);
-    oled_write_P(PSTR(" "), false);
-    oled_write_P(logo[0][1], !keymap_config.swap_lctl_lgui);
-    oled_write_P(logo[1][1], keymap_config.swap_lctl_lgui);
+    oled_write_P(PSTR("   "), false);
+    oled_write_P(PSTR("W"), !keymap_config.swap_lctl_lgui);
+    oled_write_P(PSTR("M"), keymap_config.swap_lctl_lgui);
     oled_write_P(PSTR(" NKRO"), keymap_config.nkro);
 }
 

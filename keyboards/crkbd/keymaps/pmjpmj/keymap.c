@@ -9,28 +9,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_BASE_COLEMAK_DH_HRM] = LAYOUT_wrapped(
      KC_GRV, ______________COLEMAK_MOD_DH_L1____________,      ______________COLEMAK_MOD_DH_R1____________, KC_BSLS,
     GUI_ESC, ______________COLEMAK_MOD_DH_HRM_L2________,      ______________COLEMAK_MOD_DH_HRM_R2________, KC_QUOT,
-    KC_LSFT, ______________COLEMAK_MOD_DH_L3____________,      ______________COLEMAK_MOD_DH_R3____________, KC_RSFT,
+    LSFT_BC, ______________COLEMAK_MOD_DH_L3____________,      ______________COLEMAK_MOD_DH_R3____________, RSFT_BC,
                                LALT_EC, LOW_SPC, CTL_TAB,      SFT_ENT, RAI_BSP, RALT_DL
   ),
 
   [L_BASE_COLEMAK_DH] = LAYOUT_wrapped(
      KC_GRV, ______________COLEMAK_MOD_DH_L1____________,      ______________COLEMAK_MOD_DH_R1____________, KC_BSLS,
     GUI_ESC, ______________COLEMAK_MOD_DH_L2____________,      ______________COLEMAK_MOD_DH_R2____________, KC_QUOT,
-    KC_LSFT, ______________COLEMAK_MOD_DH_L3____________,      ______________COLEMAK_MOD_DH_R3____________, KC_RSFT,
+    LSFT_BC, ______________COLEMAK_MOD_DH_L3____________,      ______________COLEMAK_MOD_DH_R3____________, RSFT_BC,
                                 LALT_EC, LOW_SPC, CTL_TAB,     SFT_ENT, RAI_BSP, RALT_DL
   ),
 
   [L_BASE_QWERTY_HRM] = LAYOUT_wrapped(
      KC_GRV, _________________QWERTY_L1_________________,      _________________QWERTY_R1_________________, KC_BSLS,
     GUI_ESC, _________________QWERTY_HRM_L2_____________,      _________________QWERTY_HRM_R2_____________, KC_QUOT,
-    KC_LSFT, _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, KC_RSFT,
+    LSFT_BC, _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, RSFT_BC,
                                LALT_EC, LOW_SPC, CTL_TAB,      SFT_ENT, RAI_BSP, RALT_DL
   ),
 
   [L_BASE_QWERTY] = LAYOUT_wrapped(
      KC_GRV, _________________QWERTY_L1_________________,      _________________QWERTY_R1_________________, KC_BSLS,
     GUI_ESC, _________________QWERTY_L2_________________,      _________________QWERTY_R2_________________, KC_QUOT,
-    KC_LSFT, _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, KC_RSFT,
+    LSFT_BC, _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, RSFT_BC,
                                LALT_EC, LOW_SPC, CTL_TAB,      SFT_ENT, RAI_BSP, RALT_DL
   ),
 
@@ -43,13 +43,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_LOWER] = LAYOUT_wrapped(
     KC_TILD, ___________________NUM_L1__________________,    ___________________NUM_R1__________________, KC_PIPE,
-    _______, ___________________SYM_L1__________________,    ___________________SYM_R1__________________, _______,
+    _______, ___________________SYM_L1__________________,    ___________________SYM_R1__________________, KC_DQUO,
     _______, ___________________SYM_L2__________________,    ___________________SYM_R2__________________, _______,
                                _______, _______, _______,    _______, _______, _______
   ),
 
   [L_RAISE] = LAYOUT_split_3x6_3(
-    KC_CAPS,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,     KC_PGUP, A(KC_LEFT),   KC_UP, A(KC_RGHT), KC_PGUP, OSL(L_ONESHOT),
+    KC_CAPS,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,     KC_PGUP, A(KC_LEFT),   KC_UP, A(KC_RGHT), KC_PGUP, _______,
     KC_CAPW, HOME_F6, HOME_F7, HOME_F8, HOME_F9,  KC_F10,     KC_PGDN,    KC_LEFT, KC_DOWN,    KC_RGHT, KC_PGDN, _______,
     _______,  KC_F11,  KC_F12, DM_REC1, DM_PLY1, DM_RSTP,     KC_LANG1,   KC_HOME, _______,     KC_END, _______, _______,
                                 _______, _______, _______,    _______, _______, _______
@@ -57,16 +57,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_ADJUST] = LAYOUT_split_3x6_3(
     CG_TOGG, BL_CMDR, BL_CMDH, BL_QWTH, BL_QWTY, BL_GAME,    KC_SEC1, KC_SEC2, KC_SEC3, KC_SEC4, KC_SEC5, XXXXXXX,
-    CMB_TOG, KC_MAC1, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, KC_VOLD, KC_VOLU, KC_MUTE, XXXXXXX, XXXXXXX,
-    KC_ASTG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    NK_TOGG, KC_MPRV, KC_MNXT, KC_MPLY, KC_MSTP, XXXXXXX,
+    CMB_TOG, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX,    XXXXXXX, KC_VOLD, KC_VOLU, KC_MUTE, XXXXXXX, XXXXXXX,
+    KC_ASTG, RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX,    NK_TOGG, KC_MPRV, KC_MNXT, KC_MPLY, KC_MSTP, XXXXXXX,
                                XXXXXXX, _______, XXXXXXX,    XXXXXXX, _______, XXXXXXX
-  ),
-
-  [L_ONESHOT] = LAYOUT_split_3x6_3(
-    CG_TOGG, BL_CMDR, BL_CMDH, BL_QWTH, BL_QWTY, BL_GAME,    KC_SEC1, KC_SEC2, KC_SEC3, KC_SEC4, KC_SEC5, XXXXXXX,
-    CMB_TOG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    KC_MAC1, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    KC_ASTG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                               XXXXXXX, XXXXXXX, XXXXXXX,    XXXXXXX, XXXXXXX, XXXXXXX
   ),
 
 };

@@ -21,8 +21,8 @@ const uint16_t PROGMEM eq_lt_combo[] = {KC_H, KC_COMMA, COMBO_END};
 const uint16_t PROGMEM eq_gt_combo[] = {KC_H, KC_DOT, COMBO_END};
 const uint16_t PROGMEM left_arrow_combo[] = {KC_SLSH, KC_COMMA, COMBO_END};
 const uint16_t PROGMEM right_arrow_combo[] = {KC_SLSH, KC_DOT, COMBO_END};
-const uint16_t PROGMEM word_left_combo[] = {KC_LEFT, KC_DOWN, COMBO_END};
-const uint16_t PROGMEM word_right_combo[] = {KC_RIGHT, KC_UP, COMBO_END};
+// const uint16_t PROGMEM word_left_combo[] = {KC_LEFT, KC_DOWN, COMBO_END};
+// const uint16_t PROGMEM word_right_combo[] = {KC_RIGHT, KC_UP, COMBO_END};
 // const uint16_t PROGMEM undo_combo[] = {KC_Z, KC_X, COMBO_END};
 // const uint16_t PROGMEM cut_combo[] = {KC_X, KC_C, COMBO_END};
 // const uint16_t PROGMEM copy_combo[] = {KC_C, KC_D, COMBO_END};
@@ -33,8 +33,8 @@ combo_t key_combos[] = {
   [EQ_OR_GREATER] = COMBO_ACTION(eq_gt_combo),
   [LEFT_ARROW] = COMBO_ACTION(left_arrow_combo),
   [RIGHT_ARROW] = COMBO_ACTION(right_arrow_combo),
-  [WORD_LEFT] = COMBO_ACTION(word_left_combo),
-  [WORD_RIGHT] = COMBO_ACTION(word_right_combo),
+//   [WORD_LEFT] = COMBO_ACTION(word_left_combo),
+//   [WORD_RIGHT] = COMBO_ACTION(word_right_combo),
   // [UNDO] = COMBO_ACTION(undo_combo),
   // [CUT] = COMBO_ACTION(cut_combo),
   // [COPY] = COMBO_ACTION(copy_combo),
@@ -63,20 +63,20 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
         SEND_STRING("->");
       }
       break;
-    case WORD_LEFT:
-      if (pressed) {
-        register_mods(MOD_MASK_CTRL);
-        tap_code16(KC_LEFT);
-        unregister_mods(MOD_MASK_CTRL);
-      }
-      break;
-    case WORD_RIGHT:
-      if (pressed) {
-        register_mods(MOD_MASK_CTRL);
-        tap_code16(KC_RIGHT);
-        unregister_mods(MOD_MASK_CTRL);
-      }
-      break;
+    // case WORD_LEFT:
+    //   if (pressed) {
+    //     register_mods(MOD_MASK_CTRL);
+    //     tap_code16(KC_LEFT);
+    //     unregister_mods(MOD_MASK_CTRL);
+    //   }
+    //   break;
+    // case WORD_RIGHT:
+    //   if (pressed) {
+    //     register_mods(MOD_MASK_CTRL);
+    //     tap_code16(KC_RIGHT);
+    //     unregister_mods(MOD_MASK_CTRL);
+    //   }
+    //   break;
     // case UNDO:
     //   if (pressed) {
     //     if (!keymap_config.swap_lctl_lgui) {

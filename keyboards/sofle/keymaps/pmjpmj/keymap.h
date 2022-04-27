@@ -11,6 +11,5 @@ enum Layers {
     L_BASE_GAME,
     L_LOWER,
     L_RAISE,
-    L_ADJUST,
-    L_ONESHOT
+    L_ADJUST
 };

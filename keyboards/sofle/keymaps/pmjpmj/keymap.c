@@ -10,7 +10,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_GRV, ___________________NUM_L1__________________,                   ___________________NUM_R1__________________, KC_BSPC,
      KC_TAB, ______________COLEMAK_MOD_DH_L1____________,                   ______________COLEMAK_MOD_DH_R1____________, KC_BSLS,
     GUI_ESC, ______________COLEMAK_MOD_DH_HRM_L2________,                   ______________COLEMAK_MOD_DH_HRM_R2________, KC_QUOT,
-    KC_LSFT, ______________COLEMAK_MOD_DH_L3____________, KC_MUTE, KC_MPLY, ______________COLEMAK_MOD_DH_R3____________, KC_RSFT,
+    LSFT_BC, ______________COLEMAK_MOD_DH_L3____________, KC_MUTE, KC_MPLY, ______________COLEMAK_MOD_DH_R3____________, RSFT_BC,
              KC_LGUI, KC_LALT, KC_LCTL, LOW_SPC, CTL_TAB,                   SFT_ENT, RAI_BSP, RCTL_DL, KC_RALT, KC_RGUI
   ),
 
@@ -18,7 +18,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_GRV, ___________________NUM_L1__________________,                   ___________________NUM_R1__________________, KC_BSPC,
      KC_TAB, ______________COLEMAK_MOD_DH_L1____________,                   ______________COLEMAK_MOD_DH_R1____________, KC_BSLS,
     GUI_ESC, ______________COLEMAK_MOD_DH_L2____________,                   ______________COLEMAK_MOD_DH_R2____________, KC_QUOT,
-    KC_LSFT, ______________COLEMAK_MOD_DH_L3____________, KC_MUTE, KC_MPLY, ______________COLEMAK_MOD_DH_R3____________, KC_RSFT,
+    LSFT_BC, ______________COLEMAK_MOD_DH_L3____________, KC_MUTE, KC_MPLY, ______________COLEMAK_MOD_DH_R3____________, RSFT_BC,
              KC_LGUI, KC_LALT, KC_LCTL, LOW_SPC, CTL_TAB,                   SFT_ENT, RAI_BSP, RCTL_DL, KC_RALT, KC_RGUI
   ),
 
@@ -26,7 +26,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_GRV, ___________________NUM_L1__________________,                   ___________________NUM_R1__________________, KC_BSPC,
      KC_TAB, _________________QWERTY_L1_________________,                   _________________QWERTY_R1_________________, KC_BSLS,
     GUI_ESC, _________________QWERTY_HRM_L2_____________,                   _________________QWERTY_HRM_R2_____________, KC_QUOT,
-    KC_LSFT, _________________QWERTY_L3_________________, KC_MUTE, KC_MPLY, _________________QWERTY_R3_________________, KC_RSFT,
+    LSFT_BC, _________________QWERTY_L3_________________, KC_MUTE, KC_MPLY, _________________QWERTY_R3_________________, RSFT_BC,
              KC_LGUI, KC_LALT, KC_LCTL, LOW_SPC, CTL_TAB,                   SFT_ENT, RAI_BSP, RCTL_DL, KC_RALT, KC_RGUI
   ),
 
@@ -34,7 +34,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_GRV, ___________________NUM_L1__________________,                   ___________________NUM_R1__________________, KC_BSPC,
      KC_TAB, _________________QWERTY_L1_________________,                   _________________QWERTY_R1_________________, KC_BSLS,
     GUI_ESC, _________________QWERTY_L2_________________,                   _________________QWERTY_R2_________________, KC_QUOT,
-    KC_LSFT, _________________QWERTY_L3_________________, KC_MUTE, KC_MPLY, _________________QWERTY_R3_________________, KC_RSFT,
+    LSFT_BC, _________________QWERTY_L3_________________, KC_MUTE, KC_MPLY, _________________QWERTY_R3_________________, RSFT_BC,
              KC_LGUI, KC_LALT, KC_LCTL, LOW_SPC, CTL_TAB,                   SFT_ENT, RAI_BSP, RCTL_DL, KC_RALT, KC_RGUI
   ),
 

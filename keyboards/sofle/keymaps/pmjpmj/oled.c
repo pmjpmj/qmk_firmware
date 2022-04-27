@@ -67,9 +67,6 @@ void render_layer_state(void) {
         case L_ADJUST:
             oled_write_ln_P(PSTR("Adjst"), false);
             break;
-        case L_ONESHOT:
-            oled_write_ln_P(PSTR("1shot"), false);
-            break;
         default:
             oled_write_ln_P(PSTR("error"), false);
     }

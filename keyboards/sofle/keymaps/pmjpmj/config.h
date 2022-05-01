@@ -4,7 +4,7 @@
 
 // default but used in macros
 #undef TAPPING_TERM
-#define TAPPING_TERM 165
+#define TAPPING_TERM 180
 #define TAPPING_TERM_PER_KEY
 
 #define IGNORE_MOD_TAP_INTERRUPT

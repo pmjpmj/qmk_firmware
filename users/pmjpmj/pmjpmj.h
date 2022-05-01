@@ -77,10 +77,12 @@ enum userspace_custom_keycodes {
 #define HOME_R LALT_T(KC_R)
 #define HOME_S LCTL_T(KC_S)
 #define HOME_T LSFT_T(KC_T)
-#define HOME_N RSFT_T(KC_N)
-#define HOME_E RCTL_T(KC_E)
+#define HOME_N LSFT_T(KC_N)
+#define HOME_E LCTL_T(KC_E)
 #define HOME_I LALT_T(KC_I)
-#define HOME_O RGUI_T(KC_O)
+#define HOME_O LGUI_T(KC_O)
+#define HOME_X ALGR_T(KC_X)
+#define HOME_DOT ALGR_T(KC_DOT)
 
 // other layer home row mods
 #define HOME_F6 LGUI_T(KC_F6)
@@ -93,10 +95,10 @@ enum userspace_custom_keycodes {
 #define HOMQ_S LALT_T(KC_S)
 #define HOMQ_D LCTL_T(KC_D)
 #define HOMQ_F LSFT_T(KC_F)
-#define HOMQ_J RSFT_T(KC_J)
-#define HOMQ_K RCTL_T(KC_K)
+#define HOMQ_J LSFT_T(KC_J)
+#define HOMQ_K LCTL_T(KC_K)
 #define HOMQ_L LALT_T(KC_L)
-#define HOMQ_SCLN RGUI_T(KC_SCLN)
+#define HOMQ_SCLN GUI_T(KC_SCLN)
 
 // clang-format off
 #define _________________QWERTY_L1_________________       KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
@@ -108,9 +110,11 @@ enum userspace_custom_keycodes {
 #define _________________QWERTY_L3_________________       KC_Z,    KC_X,    KC_C,    KC_V,    KC_B
 #define _________________QWERTY_R3_________________       KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH
 
-
 #define _________________QWERTY_HRM_L2_____________       HOMQ_A,    HOMQ_S,    HOMQ_D,    HOMQ_F,    KC_G
 #define _________________QWERTY_HRM_R2_____________       KC_H,    HOMQ_J,    HOMQ_K,    HOMQ_L,    HOMQ_SCLN
+
+#define _________________QWERTY_HRM_L3_____________       KC_Z,    HOME_X,    KC_C,    KC_V,    KC_B
+#define _________________QWERTY_HRM_R3_____________       KC_N,    KC_M,    KC_COMM, HOME_DOT,  KC_SLSH
 
 #define ______________COLEMAK_MOD_DH_L1____________       KC_Q,    KC_W,    KC_F,    KC_P,    KC_B
 #define ______________COLEMAK_MOD_DH_R1____________       KC_J,    KC_L,    KC_U,    KC_Y,    KC_SCLN
@@ -125,6 +129,9 @@ enum userspace_custom_keycodes {
 
 #define ______________COLEMAK_MOD_DH_HRM_L2________       HOME_A,  HOME_R,  HOME_S,   HOME_T,  KC_G
 #define ______________COLEMAK_MOD_DH_HRM_R2________         KC_M,  HOME_N,  HOME_E,   HOME_I,  HOME_O
+
+#define ______________COLEMAK_MOD_DH_HRM_L3________       KC_Z,    HOME_X,    KC_C,    KC_D,    KC_V
+#define ______________COLEMAK_MOD_DH_HRM_R3________       KC_K,    KC_H,    KC_COMM, HOME_DOT,  KC_SLASH
 
 
 #define ___________________NUM_L1__________________       KC_1,    KC_2,    KC_3,    KC_4,    KC_5

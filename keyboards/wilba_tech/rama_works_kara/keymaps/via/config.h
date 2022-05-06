@@ -19,4 +19,4 @@
 #define MOUSEKEY_TIME_TO_MAX    64
 
 #undef DEBOUNCE
-#define DEBOUNCE 10
+#define DEBOUNCE 5

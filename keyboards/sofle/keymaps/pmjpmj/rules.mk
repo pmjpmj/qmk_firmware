@@ -6,7 +6,7 @@ COMMAND_ENABLE = no
 LEADER_ENABLE = no
 TAP_DANCE_ENABLE = no
 MAGIC_ENABLE = yes
-COMBO_ENABLE = no
+COMBO_ENABLE = yes
 
 DEBOUNCE_TYPE = asym_eager_defer_pk
 

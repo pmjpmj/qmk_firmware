@@ -9,28 +9,28 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_BASE_COLEMAK_DH_HRM] = LAYOUT_wrapped(
      KC_GRV, ______________COLEMAK_MOD_DH_L1____________,      ______________COLEMAK_MOD_DH_R1____________, KC_BSLS,
     GUI_ESC, ______________COLEMAK_MOD_DH_HRM_L2________,      ______________COLEMAK_MOD_DH_HRM_R2________, KC_QUOT,
-    LSFT_BC, ______________COLEMAK_MOD_DH_L3____________,      ______________COLEMAK_MOD_DH_R3____________, RSFT_BC,
+    KC_LSFT, ______________COLEMAK_MOD_DH_L3____________,      ______________COLEMAK_MOD_DH_R3____________, KC_ENT,
                                LALT_EC, LOW_SPC, CTL_TAB,      SFT_ENT, RAI_BSP, RALT_DL
   ),
 
   [L_BASE_COLEMAK_DH] = LAYOUT_wrapped(
      KC_GRV, ______________COLEMAK_MOD_DH_L1____________,      ______________COLEMAK_MOD_DH_R1____________, KC_BSLS,
     GUI_ESC, ______________COLEMAK_MOD_DH_L2____________,      ______________COLEMAK_MOD_DH_R2____________, KC_QUOT,
-    LSFT_BC, ______________COLEMAK_MOD_DH_L3____________,      ______________COLEMAK_MOD_DH_R3____________, RSFT_BC,
+    KC_LSFT, ______________COLEMAK_MOD_DH_L3____________,      ______________COLEMAK_MOD_DH_R3____________, KC_ENT,
                                 LALT_EC, LOW_SPC, CTL_TAB,     SFT_ENT, RAI_BSP, RALT_DL
   ),
 
   [L_BASE_QWERTY_HRM] = LAYOUT_wrapped(
      KC_GRV, _________________QWERTY_L1_________________,      _________________QWERTY_R1_________________, KC_BSLS,
     GUI_ESC, _________________QWERTY_HRM_L2_____________,      _________________QWERTY_HRM_R2_____________, KC_QUOT,
-    LSFT_BC, _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, RSFT_BC,
+    KC_LSFT, _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, KC_ENT,
                                LALT_EC, LOW_SPC, CTL_TAB,      SFT_ENT, RAI_BSP, RALT_DL
   ),
 
   [L_BASE_QWERTY] = LAYOUT_wrapped(
      KC_GRV, _________________QWERTY_L1_________________,      _________________QWERTY_R1_________________, KC_BSLS,
     GUI_ESC, _________________QWERTY_L2_________________,      _________________QWERTY_R2_________________, KC_QUOT,
-    LSFT_BC, _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, RSFT_BC,
+    KC_LSFT, _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, KC_ENT,
                                LALT_EC, LOW_SPC, CTL_TAB,      SFT_ENT, RAI_BSP, RALT_DL
   ),
 

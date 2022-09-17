@@ -3,7 +3,7 @@
 #include "../../config.h"
 
 // Recommended for heavy chording.
-#define QMK_KEYS_PER_SCAN 10
+#define QMK_KEYS_PER_SCAN 12
 #define USB_POLLING_INTERVAL_MS 1
 
 // Mouse key speed and acceleration.
@@ -19,4 +19,4 @@
 #define MOUSEKEY_TIME_TO_MAX    64
 
 #undef DEBOUNCE
-#define DEBOUNCE 12
+#define DEBOUNCE 16

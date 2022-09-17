@@ -24,11 +24,11 @@
 #define LEADER_TIMEOUT 1000
 
 // Recommended for heavy chording.
-#define QMK_KEYS_PER_SCAN 10
+#define QMK_KEYS_PER_SCAN 12
 #define USB_POLLING_INTERVAL_MS 1
 
 #undef DEBOUNCE
-#define DEBOUNCE 10
+#define DEBOUNCE 16
 
 #ifdef AUTO_SHIFT_ENABLE
 #define AUTO_SHIFT_TIMEOUT TAPPING_TERM

@@ -5,10 +5,6 @@
 #include "features/secrets.h"
 #endif
 
-#ifdef CAPSWORD_ENABLED
-#include "features/caps_word.h"
-#endif
-
 #if defined(KEYBOARD_handwired_tractyl_manuform)
 #    define PLACEHOLDER_SAFE_RANGE KEYMAP_SAFE_RANGE
 #else
@@ -47,6 +43,7 @@ enum userspace_custom_keycodes {
 #define CTL_ESC MT(MOD_LCTL, KC_ESC)
 
 #define SFT_ENT MT(MOD_RSFT, KC_ENT)
+#define SFT_TAB MT(MOD_RSFT, KC_TAB)
 
 #define LOW_SPC LT(L_LOWER, KC_SPC)
 #define RAI_BSP LT(L_RAISE, KC_BSPC)

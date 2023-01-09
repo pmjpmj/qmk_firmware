@@ -57,8 +57,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L_RAISE] = LAYOUT_wrapped(
     _______, ___________________FNC_L1__________________,                         ___________________FNC_R1__________________, _______,
     KC_CAPS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   KC_PGUP, A(KC_LEFT),   KC_UP, A(KC_RGHT), KC_PGUP,  KC_DEL,
-    KC_CAPW, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,                   KC_PGDN,    KC_LEFT, KC_DOWN,    KC_RGHT, KC_PGDN, XXXXXXX,
-    _______, XXXXXXX, XXXXXXX, DM_REC1, DM_PLY1, DM_RSTP, XXXXXXX, XXXXXXX, KC_LANG1,   KC_HOME, XXXXXXX,     KC_END, XXXXXXX, _______,
+    CW_TOGG, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,                   KC_PGDN,    KC_LEFT, KC_DOWN,    KC_RGHT, KC_PGDN, XXXXXXX,
+    _______, XXXXXXX, XXXXXXX, DM_REC1, DM_PLY1, DM_RSTP, XXXXXXX, XXXXXXX, KC_LNG1,    KC_HOME, XXXXXXX,     KC_END, XXXXXXX, _______,
              _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______
   ),
 

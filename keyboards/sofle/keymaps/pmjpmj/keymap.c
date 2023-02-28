@@ -11,7 +11,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_TAB, ______________COLEMAK_MOD_DH_L1____________,                   ______________COLEMAK_MOD_DH_R1____________, KC_BSLS,
     GUI_ESC, ______________COLEMAK_MOD_DH_HRM_L2________,                   ______________COLEMAK_MOD_DH_HRM_R2________, KC_QUOT,
     KC_LSFT, ______________COLEMAK_MOD_DH_HRM_L3________, KC_MUTE, KC_MPLY, ______________COLEMAK_MOD_DH_HRM_R3________, SFT_ENT,
-             KC_LGUI, KC_LALT, CTL_ESC, LOW_SPC, CTL_TAB,                   SFT_ENT, RAI_BSP, RCTL_DL, KC_RALT, KC_RGUI
+             KC_LGUI, KC_LALT, CTL_ESC, LOW_SPC, CTL_TAB,                   MOU_ENT, RAI_BSP, RCTL_DL, KC_RALT, KC_RGUI
   ),
 
   [L_BASE_COLEMAK_DH] = LAYOUT_wrapped(
@@ -19,7 +19,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_TAB, ______________COLEMAK_MOD_DH_L1____________,                   ______________COLEMAK_MOD_DH_R1____________, KC_BSLS,
     GUI_ESC, ______________COLEMAK_MOD_DH_L2____________,                   ______________COLEMAK_MOD_DH_R2____________, KC_QUOT,
     KC_LSFT, ______________COLEMAK_MOD_DH_L3____________, KC_MUTE, KC_MPLY, ______________COLEMAK_MOD_DH_R3____________, SFT_ENT,
-             KC_LGUI, KC_LALT, CTL_ESC, LOW_SPC, CTL_TAB,                   SFT_ENT, RAI_BSP, RCTL_DL, KC_RALT, KC_RGUI
+             KC_LGUI, KC_LALT, CTL_ESC, LOW_SPC, CTL_TAB,                   MOU_ENT, RAI_BSP, RCTL_DL, KC_RALT, KC_RGUI
   ),
 
   [L_BASE_QWERTY_HRM] = LAYOUT_wrapped(
@@ -27,7 +27,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_TAB, _________________QWERTY_L1_________________,                   _________________QWERTY_R1_________________, KC_BSLS,
     GUI_ESC, _________________QWERTY_HRM_L2_____________,                   _________________QWERTY_HRM_R2_____________, KC_QUOT,
     KC_LSFT, _________________QWERTY_HRM_L3_____________, KC_MUTE, KC_MPLY, _________________QWERTY_HRM_R3_____________, SFT_ENT,
-             KC_LGUI, KC_LALT, CTL_ESC, LOW_SPC, CTL_TAB,                   SFT_ENT, RAI_BSP, RCTL_DL, KC_RALT, KC_RGUI
+             KC_LGUI, KC_LALT, CTL_ESC, LOW_SPC, CTL_TAB,                   MOU_ENT, RAI_BSP, RCTL_DL, KC_RALT, KC_RGUI
   ),
 
   [L_BASE_QWERTY] = LAYOUT_wrapped(
@@ -35,7 +35,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_TAB, _________________QWERTY_L1_________________,                   _________________QWERTY_R1_________________, KC_BSLS,
     GUI_ESC, _________________QWERTY_L2_________________,                   _________________QWERTY_R2_________________, KC_QUOT,
     KC_LSFT, _________________QWERTY_L3_________________, KC_MUTE, KC_MPLY, _________________QWERTY_R3_________________, SFT_ENT,
-             KC_LGUI, KC_LALT, CTL_ESC, LOW_SPC, CTL_TAB,                   SFT_ENT, RAI_BSP, RCTL_DL, KC_RALT, KC_RGUI
+             KC_LGUI, KC_LALT, CTL_ESC, LOW_SPC, CTL_TAB,                   MOU_ENT, RAI_BSP, RCTL_DL, KC_RALT, KC_RGUI
   ),
 
   [L_BASE_GAME] = LAYOUT_wrapped(
@@ -50,7 +50,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_TILD, ___________________NUM_L1__________________,                   ___________________NUM_R1__________________,  KC_DEL,
     _______, ___________________SYM_L1__________________,                   ___________________SYM_R1__________________, KC_PIPE,
     _______, ___________________ASM_L2__________________,                   ___________________ASM_R2__________________, KC_DQUO,
-    _______, ___________________ASM_L3__________________, XXXXXXX, XXXXXXX, ___________________ASM_R3__________________, _______,
+    _______, ___________________ASM_L3__________________, _______, _______, ___________________ASM_R3__________________, _______,
              _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______
   ),
 
@@ -58,15 +58,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, ___________________FNC_L1__________________,                         ___________________FNC_R1__________________, _______,
     KC_CAPS, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   KC_PGUP, A(KC_LEFT),   KC_UP, A(KC_RGHT), KC_PGUP,  KC_DEL,
     CW_TOGG, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,                   KC_PGDN,    KC_LEFT, KC_DOWN,    KC_RGHT, KC_PGDN, XXXXXXX,
-    _______, XXXXXXX, XXXXXXX, DM_REC1, DM_PLY1, DM_RSTP, XXXXXXX, XXXXXXX, KC_LNG1,    KC_HOME, XXXXXXX,     KC_END, XXXXXXX, _______,
+    _______, XXXXXXX, XXXXXXX, DM_REC1, DM_PLY1, DM_RSTP, _______, _______, KC_LNG1,    KC_HOME, XXXXXXX,     KC_END, XXXXXXX, _______,
+             _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______
+  ),
+
+  [L_MOUSE] = LAYOUT_wrapped(
+    XXXXXXX, KC_ACL0, KC_ACL1, KC_ACL2, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, KC_BTN4, KC_BTN1, KC_BTN3, KC_BTN2, KC_BTN5,                   KC_WH_L, KC_WH_D, KC_MS_U, KC_WH_U, KC_WH_R, XXXXXXX,
+    XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,                   XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX, XXXXXXX,
+    XXXXXXX, KC_BTN4, KC_BTN1, KC_BTN3, KC_BTN2, KC_BTN5, _______, _______, KC_BTN4, KC_BTN1, KC_BTN3, KC_BTN2, KC_BTN5, XXXXXXX,
              _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______
   ),
 
   [L_ADJUST] = LAYOUT_wrapped(
     CG_TOGG, BL_CMDR, BL_CMDH, BL_QWTH, BL_QWTY, BL_GAME,                   KC_SEC1, KC_SEC2, KC_SEC3, KC_SEC4, KC_SEC5, XXXXXXX,
-    CMB_TOG, XXXXXXX, KC_WH_D, KC_MS_U, KC_WH_U, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    KC_ASTG, KC_WH_L, KC_MS_L, KC_MS_D, KC_MS_R, KC_WH_R,                   XXXXXXX, KC_BTN1, KC_BTN3, KC_BTN2, XXXXXXX, XXXXXXX,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, NK_TOGG, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX,
+    CM_TOGG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    AS_TOGG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, NK_TOGG, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX,
              _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______
   ),
 
@@ -120,15 +128,16 @@ bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
 }
 #endif
 
-#ifdef TAPPING_FORCE_HOLD_PER_KEY
-bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
+#ifdef QUICK_TAP_TERM_PER_KEY
+uint16_t get_quick_tap_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case CTL_SPC:
-        case LALT_TB:
-        case RALT_DL:
-            return false;
+        case LOW_SPC:
+        case CTL_TAB:
+        case MOU_ENT:
+        case RAI_BSP:
+            return QUICK_TAP_TERM - 40;
         default:
-            return true;
+            return QUICK_TAP_TERM;
     }
 }
 #endif

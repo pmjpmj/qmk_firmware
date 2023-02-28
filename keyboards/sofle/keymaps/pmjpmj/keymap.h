@@ -11,5 +11,8 @@ enum Layers {
     L_BASE_GAME,
     L_LOWER,
     L_RAISE,
+    L_MOUSE,
     L_ADJUST
 };
+
+#define MOU_ENT LT(L_MOUSE, KC_ENT)

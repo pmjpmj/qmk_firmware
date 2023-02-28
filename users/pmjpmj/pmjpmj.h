@@ -1,25 +1,27 @@
 #pragma once
+
 #include QMK_KEYBOARD_H
+#include "quantum.h"
 
 #ifdef SECRETS_ENABLED
 #include "features/secrets.h"
 #endif
 
-#if defined(KEYBOARD_handwired_tractyl_manuform)
-#    define PLACEHOLDER_SAFE_RANGE KEYMAP_SAFE_RANGE
-#else
-#    define PLACEHOLDER_SAFE_RANGE SAFE_RANGE
-#endif
+#define SAFE_RANGE             QK_USER
+// #if defined(KEYBOARD_handwired_tractyl_manuform)
+// #    define PLACEHOLDER_SAFE_RANGE KEYMAP_SAFE_RANGE
+// #else
+// #    define PLACEHOLDER_SAFE_RANGE SAFE_RANGE
+// #endif
 
 enum userspace_custom_keycodes {
-    VRSN = PLACEHOLDER_SAFE_RANGE,            // Prints QMK Firmware and board info
+    VRSN = SAFE_RANGE,            // Prints QMK Firmware and board info
     KC_SECRET_1,                              // test1
     KC_SECRET_2,                              // test2
     KC_SECRET_3,                              // test3
     KC_SECRET_4,                              // test4
     KC_SECRET_5,                              // test5
     KC_MACRO_1,
-    KC_CAPSWORD,
     NEW_SAFE_RANGE                            // use "NEWPLACEHOLDER for keymap specific codes
 };
 
@@ -29,7 +31,6 @@ enum userspace_custom_keycodes {
 #define KC_SEC4   KC_SECRET_4
 #define KC_SEC5   KC_SECRET_5
 #define KC_MAC1   KC_MACRO_1
-#define KC_CAPW   KC_CAPSWORD
 
 #define LOWER MO(L_LOWER)
 #define RAISE MO(L_RAISE)
@@ -144,8 +145,9 @@ enum userspace_custom_keycodes {
 #define ___________________FNC_R1__________________       KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10
 
 
-#define ___________________ASM_L2__________________       XXXXXXX, XXXXXXX, KC_UNDS,  KC_EQL, XXXXXXX
-#define ___________________ASM_R2__________________       XXXXXXX, KC_LPRN, KC_RPRN, KC_LBRC, KC_RBRC
-#define ___________________ASM_L3__________________       XXXXXXX, KC_PERC, KC_MINS, KC_PLUS, KC_ASTR
-#define ___________________ASM_R3__________________       XXXXXXX, KC_LCBR, KC_RCBR, KC_LABK, KC_RABK
+#define ___________________ASM_L2__________________       KC_MINS, KC_PLUS, KC_UNDS,  KC_EQL, XXXXXXX
+#define ___________________ASM_R2__________________       XXXXXXX, KC_LCBR, KC_RCBR, KC_LBRC, KC_RBRC
+
+#define ___________________ASM_L3__________________       KC_UNDS,  KC_EQL, KC_MINS, KC_PLUS, XXXXXXX
+#define ___________________ASM_R3__________________       XXXXXXX, KC_LPRN, KC_RPRN, KC_LABK, KC_RABK
 // clang-format on

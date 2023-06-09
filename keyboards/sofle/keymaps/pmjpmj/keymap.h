@@ -12,7 +12,8 @@ enum Layers {
     L_LOWER,
     L_RAISE,
     L_MOUSE,
+    L_NUMPAD,
+    L_FUNCPAD,
     L_ADJUST
 };
 
-#define MOU_ENT LT(L_MOUSE, KC_ENT)

@@ -25,10 +25,6 @@ RGB_MATRIX_ENABLE = yes
 # OLED_DRIVER = SSD1306
 # WAIT_FOR_USB = yes
 
-ifeq ($(strip $(COMBO_ENABLE)), yes)
-	SRC += combos.c
-endif
-
 ifeq ($(strip $(OLED_ENABLE)), yes)
 	SRC += oled.c
 endif

@@ -82,12 +82,13 @@ void render_layer_state(void) {
 }
 
 void render_keylock_status(uint8_t led_usb_state) {
+    led_t led_state = host_keyboard_led_state();
     oled_write_P(PSTR("Lock:"), false);
     oled_write_P(PSTR(" "), false);
-    oled_write_P(PSTR("N"), led_usb_state & (1 << USB_LED_NUM_LOCK));
-    oled_write_P(PSTR("C"), led_usb_state & (1 << USB_LED_CAPS_LOCK));
+    oled_write_P(PSTR("N"), led_usb_state & (1 << led_state.num_lock));
+    oled_write_P(PSTR("C"), led_usb_state & (1 << led_state.caps_lock));
     oled_write_P(PSTR("W"), is_caps_word_on());
-    oled_write_P(PSTR("S"), led_usb_state & (1 << USB_LED_SCROLL_LOCK));
+    oled_write_P(PSTR("S"), led_usb_state & (1 << led_state.scroll_lock));
     #ifndef WPM_ENABLE
     oled_write_ln_P(PSTR(""), false);
     #endif

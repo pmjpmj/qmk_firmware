@@ -12,7 +12,7 @@ CAPS_WORD_ENABLE = yes
 DEBOUNCE_TYPE = sym_defer_g
 # DEBOUNCE_TYPE = asym_eager_defer_pk
 
-SECRETS_ENABLED = yes
+SECRETS_ENABLED = no
 MACROS_ENABLED = yes
 #CAPSWORD_ENABLED = no
 
@@ -21,7 +21,7 @@ WPM_ENABLE = no
 RGBLIGHT_ENABLE = no
 RGB_MATRIX_ENABLE = no
 OLED_ENABLE = yes
-OLED_DRIVER = SSD1306
+OLED_DRIVER = ssd1306
 ENCODER_ENABLE = yes
 WAIT_FOR_USB = yes
 
@@ -40,10 +40,6 @@ DEBUG_MATRIX_SCAN_RATE  = no
 DEBUG_MATRIX = no
 SPACE_CADET_ENABLE = no
 GRAVE_ESC_ENABLE = no
-
-ifeq ($(strip $(COMBO_ENABLE)), yes)
-	SRC += combos.c
-endif
 
 ifeq ($(strip $(OLED_ENABLE)), yes)
 	SRC += oled.c

@@ -202,3 +202,72 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 }
 
 #endif
+
+#ifdef COMBO_ENABLE
+
+enum combo_events {
+    EQ_OR_LESS,
+    EQ_OR_GREATER,
+    LEFT_ARROW,
+    RIGHT_ARROW,
+    WORD_LEFT,
+    WORD_RIGHT,
+    LABK,
+    RABK,
+    LPRN,
+    RPRN,
+
+    COMBO_LENGTH
+};
+uint16_t COMBO_LEN = COMBO_LENGTH;
+
+const uint16_t PROGMEM eq_lt_combo[] = {KC_H, KC_COMMA, COMBO_END};
+const uint16_t PROGMEM eq_gt_combo[] = {KC_H, KC_DOT, COMBO_END};
+const uint16_t PROGMEM left_arrow_combo[] = {KC_SLSH, KC_COMMA, COMBO_END};
+const uint16_t PROGMEM right_arrow_combo[] = {KC_SLSH, KC_DOT, COMBO_END};
+const uint16_t PROGMEM word_left_combo[] = {KC_LEFT, KC_DOWN, COMBO_END};
+const uint16_t PROGMEM word_right_combo[] = {KC_RIGHT, KC_DOWN, COMBO_END};
+const uint16_t PROGMEM labk_combo[] = {KC_LCBR, KC_LBRC, COMBO_END};
+const uint16_t PROGMEM rabk_combo[] = {KC_RCBR, KC_RBRC, COMBO_END};
+const uint16_t PROGMEM lprn_combo[] = {KC_LCBR, KC_RCBR, COMBO_END};
+const uint16_t PROGMEM rprn_combo[] = {KC_RCBR, KC_LBRC, COMBO_END};
+
+combo_t key_combos[] = {
+  [EQ_OR_LESS] = COMBO_ACTION(eq_lt_combo),
+  [EQ_OR_GREATER] = COMBO_ACTION(eq_gt_combo),
+  [LEFT_ARROW] = COMBO_ACTION(left_arrow_combo),
+  [RIGHT_ARROW] = COMBO_ACTION(right_arrow_combo),
+  [WORD_LEFT] = COMBO(word_left_combo, A(KC_LEFT)),
+  [WORD_RIGHT] = COMBO(word_right_combo, A(KC_RIGHT)),
+  [LABK] = COMBO(labk_combo, KC_LABK),
+  [RABK] = COMBO(rabk_combo, KC_RABK),
+  [LPRN] = COMBO(lprn_combo, KC_LPRN),
+  [RPRN] = COMBO(rprn_combo, KC_RPRN),
+};
+
+void process_combo_event(uint16_t combo_index, bool pressed) {
+  switch(combo_index) {
+    case EQ_OR_LESS:
+      if (pressed) {
+        SEND_STRING("<=");
+      }
+      break;
+    case EQ_OR_GREATER:
+      if (pressed) {
+        SEND_STRING(">=");
+      }
+      break;
+    case LEFT_ARROW:
+      if (pressed) {
+        SEND_STRING("<-");
+      }
+      break;
+    case RIGHT_ARROW:
+      if (pressed) {
+        SEND_STRING("->");
+      }
+      break;
+  }
+}
+
+#endif

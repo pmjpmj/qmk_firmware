@@ -90,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     CG_TOGG, BL_CMDR, BL_CMDH, BL_QWTH, BL_QWTY, BL_GAME,                   KC_SEC1, KC_SEC2, KC_SEC3, KC_SEC4, KC_SEC5, XXXXXXX,
     CM_TOGG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     AS_TOGG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, NK_TOGG, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX,
+    GU_TOGG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, NK_TOGG, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX,
              _______, _______, _______, _______, _______,                   _______, _______, _______, _______, _______
   ),
 
@@ -212,10 +212,18 @@ enum combo_events {
     RIGHT_ARROW,
     WORD_LEFT,
     WORD_RIGHT,
-    LABK,
-    RABK,
     LPRN,
+    LCBR,
+    LABK,
+    LBRC,
     RPRN,
+    RCBR,
+    RABK,
+    RBRC,
+    UNDO,
+    CUT,
+    COPY,
+    PASTE,
 
     COMBO_LENGTH
 };
@@ -227,10 +235,18 @@ const uint16_t PROGMEM left_arrow_combo[] = {KC_SLSH, KC_COMMA, COMBO_END};
 const uint16_t PROGMEM right_arrow_combo[] = {KC_SLSH, KC_DOT, COMBO_END};
 const uint16_t PROGMEM word_left_combo[] = {KC_LEFT, KC_DOWN, COMBO_END};
 const uint16_t PROGMEM word_right_combo[] = {KC_RIGHT, KC_DOWN, COMBO_END};
-const uint16_t PROGMEM labk_combo[] = {KC_LCBR, KC_LBRC, COMBO_END};
-const uint16_t PROGMEM rabk_combo[] = {KC_RCBR, KC_RBRC, COMBO_END};
-const uint16_t PROGMEM lprn_combo[] = {KC_LCBR, KC_RCBR, COMBO_END};
-const uint16_t PROGMEM rprn_combo[] = {KC_RCBR, KC_LBRC, COMBO_END};
+const uint16_t PROGMEM lprn_combo[] = {KC_F, KC_L, COMBO_END};
+const uint16_t PROGMEM lcbr_combo[] = {KC_F, KC_U, COMBO_END};
+const uint16_t PROGMEM labk_combo[] = {KC_F, KC_Y, COMBO_END};
+const uint16_t PROGMEM lbrc_combo[] = {KC_F, KC_SCLN, COMBO_END};
+const uint16_t PROGMEM rprn_combo[] = {KC_P, KC_L, COMBO_END};
+const uint16_t PROGMEM rcbr_combo[] = {KC_P, KC_U, COMBO_END};
+const uint16_t PROGMEM rabk_combo[] = {KC_P, KC_Y, COMBO_END};
+const uint16_t PROGMEM rbrc_combo[] = {KC_P, KC_SCLN, COMBO_END};
+const uint16_t PROGMEM undo_combo[] = {KC_Z, KC_X, COMBO_END};
+const uint16_t PROGMEM cut_combo[] = {KC_X, KC_C, COMBO_END};
+const uint16_t PROGMEM copy_combo[] = {KC_C, KC_D, COMBO_END};
+const uint16_t PROGMEM paste_combo[] = {KC_D, KC_V, COMBO_END};
 
 combo_t key_combos[] = {
   [EQ_OR_LESS] = COMBO_ACTION(eq_lt_combo),
@@ -239,10 +255,18 @@ combo_t key_combos[] = {
   [RIGHT_ARROW] = COMBO_ACTION(right_arrow_combo),
   [WORD_LEFT] = COMBO(word_left_combo, A(KC_LEFT)),
   [WORD_RIGHT] = COMBO(word_right_combo, A(KC_RIGHT)),
-  [LABK] = COMBO(labk_combo, KC_LABK),
-  [RABK] = COMBO(rabk_combo, KC_RABK),
   [LPRN] = COMBO(lprn_combo, KC_LPRN),
+  [LCBR] = COMBO(lcbr_combo, KC_LCBR),
+  [LABK] = COMBO(labk_combo, KC_LABK),
+  [LBRC] = COMBO(lbrc_combo, KC_LBRC),
   [RPRN] = COMBO(rprn_combo, KC_RPRN),
+  [RCBR] = COMBO(rcbr_combo, KC_RCBR),
+  [RABK] = COMBO(rabk_combo, KC_RABK),
+  [RBRC] = COMBO(rbrc_combo, KC_RBRC),
+  [UNDO] = COMBO(undo_combo, C(KC_Z)),
+  [CUT] = COMBO(cut_combo, C(KC_X)),
+  [COPY] = COMBO(copy_combo, C(KC_C)),
+  [PASTE] = COMBO(paste_combo, C(KC_V)),
 };
 
 void process_combo_event(uint16_t combo_index, bool pressed) {

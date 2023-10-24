@@ -1,7 +1,7 @@
 EXTRAKEY_ENABLE = yes # Audio control and System control
 MOUSEKEY_ENABLE = yes
 AUTO_SHIFT_ENABLE = no
-DYNAMIC_MACRO_ENABLE = yes
+DYNAMIC_MACRO_ENABLE = no
 COMMAND_ENABLE = no
 LEADER_ENABLE = no
 TAP_DANCE_ENABLE = no
@@ -9,7 +9,7 @@ MAGIC_ENABLE = yes
 COMBO_ENABLE = yes
 CAPS_WORD_ENABLE = yes
 
-DEBOUNCE_TYPE = sym_defer_g
+DEBOUNCE_TYPE = sym_eager_pk
 # DEBOUNCE_TYPE = asym_eager_defer_pk
 
 SECRETS_ENABLED = no

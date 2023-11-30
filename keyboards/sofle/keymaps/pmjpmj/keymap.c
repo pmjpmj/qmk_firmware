@@ -89,7 +89,6 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case HOME_A:
         case HOME_O:
-        case HOMQ_A:
         case HOMQ_SCLN:
             return TAPPING_TERM + 50;
         case HOME_R:

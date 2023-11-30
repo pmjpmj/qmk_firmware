@@ -5,7 +5,7 @@
 // default but used in macros
 #undef TAPPING_TERM
 #define TAPPING_TERM 150
-// #define TAPPING_TERM_PER_KEY
+#define TAPPING_TERM_PER_KEY
 
 #define QUICK_TAP_TERM 0
 // #define QUICK_TAP_TERM_PER_KEY

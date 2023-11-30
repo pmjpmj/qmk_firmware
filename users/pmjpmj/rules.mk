@@ -8,3 +8,7 @@ endif
 ifeq ($(strip $(MACROS_ENABLED)), yes)
     OPT_DEFS += -DMACROS_ENABLED
 endif
+
+ifeq ($(strip $(TAP_DANCE_ENABLE)), yes)
+    SRC += tap_dance.c
+endif

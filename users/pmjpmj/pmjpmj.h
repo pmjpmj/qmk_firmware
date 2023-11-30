@@ -7,6 +7,10 @@
 #include "features/secrets.h"
 #endif
 
+#ifdef TAP_DANCE_ENABLE
+#include "tap_dance.h"
+#endif
+
 #define SAFE_RANGE             QK_USER
 // #if defined(KEYBOARD_handwired_tractyl_manuform)
 // #    define PLACEHOLDER_SAFE_RANGE KEYMAP_SAFE_RANGE
@@ -66,11 +70,11 @@ enum userspace_custom_keycodes {
 #define RSFT_BC MT(MOD_RSFT, KC_RBRC)
 
 // layer codes
-#define BL_CMDH DF(L_BASE_COLEMAK_DH)
-#define BL_CMDA DF(L_BASE_COLEMAK_DH_ANSI)
+// #define BL_CMDH DF(L_BASE_COLEMAK_DH)
+// #define BL_CMDA DF(L_BASE_COLEMAK_DH_ANSI)
 #define BL_CMDR DF(L_BASE_COLEMAK_DH_HRM)
-#define BL_CDAH DF(L_BASE_COLEMAK_DH_ANSI_HRM)
-#define BL_QWTY DF(L_BASE_QWERTY)
+// #define BL_CDAH DF(L_BASE_COLEMAK_DH_ANSI_HRM)
+// #define BL_QWTY DF(L_BASE_QWERTY)
 #define BL_QWTH DF(L_BASE_QWERTY_HRM)
 #define BL_GAME DF(L_BASE_GAME)
 #define BL_BASE DF(L_BASE)
@@ -102,6 +106,13 @@ enum userspace_custom_keycodes {
 #define HOMQ_K LCTL_T(KC_K)
 #define HOMQ_L LALT_T(KC_L)
 #define HOMQ_SCLN GUI_T(KC_SCLN)
+
+#define TD_KC_LCBR TD(TD_LCBR)
+#define TD_KC_RCBR TD(TD_RCBR)
+#define TD_KC_LPRN TD(TD_LPRN)
+#define TD_KC_RPRN TD(TD_RPRN)
+#define TD_KC_LABK TD(TD_LABK)
+#define TD_KC_RABK TD(TD_RABK)
 
 // clang-format off
 #define _________________QWERTY_L1_________________       KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
@@ -141,10 +152,10 @@ enum userspace_custom_keycodes {
 #define ___________________NUM_R1__________________       KC_6,    KC_7,    KC_8,    KC_9,    KC_0
 
 #define ___________________SYM_L1__________________       KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC
-#define ___________________SYM_R1__________________       KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN
+#define ___________________SYM_R1__________________       KC_CIRC, KC_AMPR, KC_ASTR, TD_KC_LPRN, TD_KC_RPRN
 
 #define ___________________SYM_L2__________________       KC_MINS, KC_PLUS, KC_UNDS,  KC_EQL, KC_LABK
-#define ___________________SYM_R2__________________       KC_RABK, KC_LCBR, KC_RCBR, KC_LBRC, KC_RBRC
+#define ___________________SYM_R2__________________       KC_RABK, TD_KC_LCBR, TD_KC_RCBR, TD_KC_LABK, TD_KC_RABK
 
 #define ___________________FNC_L1__________________       KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5
 #define ___________________FNC_R1__________________       KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10

@@ -14,28 +14,12 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
              KC_LGUI, KC_LALT, NUM_ESC, LOW_SPC, CTL_TAB,                   MOU_ENT, RAI_BSP, FNC_DEL, KC_RALT, KC_RGUI
   ),
 
-  [L_BASE_COLEMAK_DH] = LAYOUT_wrapped(
-     KC_GRV, ___________________NUM_L1__________________,                   ___________________NUM_R1__________________, KC_BSPC,
-     KC_TAB, ______________COLEMAK_MOD_DH_L1____________,                   ______________COLEMAK_MOD_DH_R1____________, KC_BSLS,
-    GUI_ESC, ______________COLEMAK_MOD_DH_L2____________,                   ______________COLEMAK_MOD_DH_R2____________, KC_QUOT,
-    KC_LSFT, ______________COLEMAK_MOD_DH_L3____________, KC_MUTE, KC_MPLY, ______________COLEMAK_MOD_DH_R3____________, SFT_ENT,
-             KC_LGUI, KC_LALT, CTL_ESC, LOW_SPC, CTL_TAB,                   MOU_ENT, RAI_BSP, RCTL_DL, KC_RALT, KC_RGUI
-  ),
-
   [L_BASE_QWERTY_HRM] = LAYOUT_wrapped(
      KC_GRV, ___________________NUM_L1__________________,                   ___________________NUM_R1__________________, KC_BSPC,
      KC_TAB, _________________QWERTY_L1_________________,                   _________________QWERTY_R1_________________, KC_BSLS,
     GUI_ESC, _________________QWERTY_HRM_L2_____________,                   _________________QWERTY_HRM_R2_____________, KC_QUOT,
     KC_LSFT, _________________QWERTY_HRM_L3_____________, KC_MUTE, KC_MPLY, _________________QWERTY_HRM_R3_____________, SFT_ENT,
              KC_LGUI, KC_LALT, NUM_ESC, LOW_SPC, CTL_TAB,                   MOU_ENT, RAI_BSP, FNC_DEL, KC_RALT, KC_RGUI
-  ),
-
-  [L_BASE_QWERTY] = LAYOUT_wrapped(
-     KC_GRV, ___________________NUM_L1__________________,                   ___________________NUM_R1__________________, KC_BSPC,
-     KC_TAB, _________________QWERTY_L1_________________,                   _________________QWERTY_R1_________________, KC_BSLS,
-    GUI_ESC, _________________QWERTY_L2_________________,                   _________________QWERTY_R2_________________, KC_QUOT,
-    KC_LSFT, _________________QWERTY_L3_________________, KC_MUTE, KC_MPLY, _________________QWERTY_R3_________________, SFT_ENT,
-             KC_LGUI, KC_LALT, CTL_ESC, LOW_SPC, CTL_TAB,                   MOU_ENT, RAI_BSP, RCTL_DL, KC_RALT, KC_RGUI
   ),
 
   [L_BASE_GAME] = LAYOUT_wrapped(
@@ -87,7 +71,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L_ADJUST] = LAYOUT_wrapped(
-    CG_TOGG, BL_CMDR, BL_CMDH, BL_QWTH, BL_QWTY, BL_GAME,                   KC_SEC1, KC_SEC2, KC_SEC3, KC_SEC4, KC_SEC5, XXXXXXX,
+    CG_TOGG, BL_CMDR, BL_QWTH, BL_GAME, XXXXXXX, XXXXXXX,                   KC_SEC1, KC_SEC2, KC_SEC3, KC_SEC4, KC_SEC5, XXXXXXX,
     CM_TOGG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     AS_TOGG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
     GU_TOGG, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, NK_TOGG, KC_MPRV, KC_MPLY, KC_MNXT, XXXXXXX, XXXXXXX,
@@ -126,6 +110,9 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 bool get_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
+            return true;
+        case HOME_T:
+        case HOME_N:
             return true;
         default:
             return false;

@@ -13,25 +13,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                NUM_ESC, LOW_SPC, CTL_TAB,      MOU_ENT, RAI_BSP, FNC_DEL
   ),
 
-  [L_BASE_COLEMAK_DH] = LAYOUT_wrapped(
-     KC_GRV, ______________COLEMAK_MOD_DH_L1____________,      ______________COLEMAK_MOD_DH_R1____________, KC_BSLS,
-    GUI_ESC, ______________COLEMAK_MOD_DH_L2____________,      ______________COLEMAK_MOD_DH_R2____________, KC_QUOT,
-    KC_LSFT, ______________COLEMAK_MOD_DH_L3____________,      ______________COLEMAK_MOD_DH_R3____________, KC_ENT,
-                                LALT_EC, LOW_SPC, CTL_TAB,     MOU_ENT, RAI_BSP, RALT_DL
-  ),
-
   [L_BASE_QWERTY_HRM] = LAYOUT_wrapped(
      KC_GRV, _________________QWERTY_L1_________________,      _________________QWERTY_R1_________________, KC_BSLS,
     GUI_ESC, _________________QWERTY_HRM_L2_____________,      _________________QWERTY_HRM_R2_____________, KC_QUOT,
     KC_LSFT, _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, KC_ENT,
                                NUM_ESC, LOW_SPC, CTL_TAB,      MOU_ENT, RAI_BSP, FNC_DEL
-  ),
-
-  [L_BASE_QWERTY] = LAYOUT_wrapped(
-     KC_GRV, _________________QWERTY_L1_________________,      _________________QWERTY_R1_________________, KC_BSLS,
-    GUI_ESC, _________________QWERTY_L2_________________,      _________________QWERTY_R2_________________, KC_QUOT,
-    KC_LSFT, _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, KC_ENT,
-                               LALT_EC, LOW_SPC, CTL_TAB,      MOU_ENT, RAI_BSP, RALT_DL
   ),
 
   [L_BASE_GAME] = LAYOUT_wrapped(
@@ -77,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L_ADJUST] = LAYOUT_split_3x6_3(
-    CG_TOGG, BL_CMDR, BL_CMDH, BL_QWTH, BL_QWTY, BL_GAME,    KC_SEC1, KC_SEC2, KC_SEC3, KC_SEC4, KC_SEC5, XXXXXXX,
+    CG_TOGG, BL_CMDR, BL_QWTH, BL_GAME, XXXXXXX, XXXXXXX,    KC_SEC1, KC_SEC2, KC_SEC3, KC_SEC4, KC_SEC5, XXXXXXX,
     CM_TOGG, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX,    XXXXXXX, KC_VOLD, KC_VOLU, KC_MUTE, XXXXXXX, XXXXXXX,
     AS_TOGG, RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX,    NK_TOGG, KC_MPRV, KC_MNXT, KC_MPLY, KC_MSTP, XXXXXXX,
                                XXXXXXX, _______, XXXXXXX,    XXXXXXX, _______, XXXXXXX
@@ -115,6 +101,9 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 bool get_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
+            return true;
+        case HOME_T:
+        case HOME_N:
             return true;
         default:
             return false;

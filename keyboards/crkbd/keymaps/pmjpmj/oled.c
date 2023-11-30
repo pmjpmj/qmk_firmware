@@ -31,17 +31,11 @@ void render_wpm(void) {
 void render_default_layer_state(void) {
     oled_write_P(PSTR("Base:"), false);
     switch (get_highest_layer(default_layer_state)) {
-        case L_BASE_COLEMAK_DH:
-            oled_write_ln_P(PSTR("ColDH"), false);
-            break;
         case L_BASE_COLEMAK_DH_HRM:
             oled_write_P(PSTR("ColDH  HRM"), false);
             break;
         case L_BASE_QWERTY_HRM:
             oled_write_P(PSTR(" Qwty  HRM"), false);
-            break;
-        case L_BASE_QWERTY:
-            oled_write_ln_P(PSTR(" Qwty"), false);
             break;
         case L_BASE_GAME:
             oled_write_ln_P(PSTR(" Game"), false);
@@ -52,10 +46,8 @@ void render_default_layer_state(void) {
 void render_layer_state(void) {
     oled_write_P(PSTR("LAYER"), false);
     switch (get_highest_layer(layer_state)) {
-        case L_BASE_COLEMAK_DH:
         case L_BASE_COLEMAK_DH_HRM:
         case L_BASE_QWERTY_HRM:
-        case L_BASE_QWERTY:
             oled_write_ln_P(PSTR(" Base"), false);
             break;
         case L_LOWER:

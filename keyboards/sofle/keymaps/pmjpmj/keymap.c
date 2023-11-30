@@ -88,19 +88,15 @@ layer_state_t layer_state_set_user(layer_state_t state) {
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
         case HOME_A:
-        case HOME_R:
-        case HOME_I:
         case HOME_O:
-        // case HOMQ_A:
-        case HOMQ_S:
-        case HOMQ_L:
+        case HOMQ_A:
         case HOMQ_SCLN:
             return TAPPING_TERM + 50;
-        case HOME_S:
-        case HOME_E:
-        case HOMQ_D:
-        case HOMQ_K:
-            return TAPPING_TERM + 20;
+        case HOME_R:
+        case HOME_I:
+        case HOMQ_S:
+        case HOMQ_L:
+            return TAPPING_TERM + 25;
         default:
             return TAPPING_TERM;
     }

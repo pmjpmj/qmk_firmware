@@ -4,7 +4,7 @@
 
 // default but used in macros
 #undef TAPPING_TERM
-#define TAPPING_TERM 150
+#define TAPPING_TERM 175
 #define TAPPING_TERM_PER_KEY
 
 #define QUICK_TAP_TERM 0
@@ -28,7 +28,7 @@
 
 // Recommended for heavy chording.
 #define QMK_KEYS_PER_SCAN 10
-#define USB_POLLING_INTERVAL_MS 10
+#define USB_POLLING_INTERVAL_MS 1
 
 // Mouse key speed and acceleration.
 #undef MOUSEKEY_DELAY
@@ -43,7 +43,7 @@
 #define MOUSEKEY_TIME_TO_MAX    64
 
 #undef DEBOUNCE
-#define DEBOUNCE 12
+#define DEBOUNCE 7
 
 #ifdef AUTO_SHIFT_ENABLE
 #define AUTO_SHIFT_TIMEOUT TAPPING_TERM

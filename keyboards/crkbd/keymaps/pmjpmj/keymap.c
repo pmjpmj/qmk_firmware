@@ -10,34 +10,34 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      KC_GRV, ______________COLEMAK_MOD_DH_L1____________,      ______________COLEMAK_MOD_DH_R1____________, KC_BSLS,
     GUI_ESC, ______________COLEMAK_MOD_DH_HRM_L2________,      ______________COLEMAK_MOD_DH_HRM_R2________, KC_QUOT,
     KC_LSFT, ______________COLEMAK_MOD_DH_L3____________,      ______________COLEMAK_MOD_DH_R3____________, KC_ENT,
-                               NUM_ESC, LOW_SPC, CTL_TAB,      MOU_ENT, RAI_BSP, FNC_DEL
+                               CTL_ESC, LOW_SPC, NUM_TAB,      FNC_ENT, RAI_BSP, MOU_DEL
   ),
 
   [L_BASE_QWERTY_HRM] = LAYOUT_wrapped(
      KC_GRV, _________________QWERTY_L1_________________,      _________________QWERTY_R1_________________, KC_BSLS,
     GUI_ESC, _________________QWERTY_HRM_L2_____________,      _________________QWERTY_HRM_R2_____________, KC_QUOT,
     KC_LSFT, _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, KC_ENT,
-                               NUM_ESC, LOW_SPC, CTL_TAB,      MOU_ENT, RAI_BSP, FNC_DEL
+                               CTL_ESC, LOW_SPC, NUM_TAB,      FNC_ENT, RAI_BSP, MOU_DEL
   ),
 
   [L_BASE_GAME] = LAYOUT_wrapped(
      KC_TAB, _________________QWERTY_L1_________________,      _________________QWERTY_R1_________________, KC_BSLS,
     KC_LCTL, _________________QWERTY_L2_________________,      _________________QWERTY_R2_________________, KC_QUOT,
     KC_LSFT, _________________QWERTY_L3_________________,      _________________QWERTY_R3_________________, KC_RSFT,
-                                LALT_EC, LOW_SPC, KC_TAB,      MOU_ENT, RAI_BSP, RALT_DL
+                                LALT_EC, KC_SPC, KC_TAB,       KC_ENT, RAI_BSP, RALT_DL
   ),
 
   [L_LOWER] = LAYOUT_wrapped(
-    KC_TILD, ___________________NUM_L1__________________,    ___________________NUM_R1__________________, KC_PIPE,
-    _______, ___________________SYM_L1__________________,    ___________________SYM_R1__________________, KC_DQUO,
-    _______, ___________________SYM_L2__________________,    ___________________SYM_R2__________________, _______,
-                               _______, _______, _______,    _______, _______, _______
+    KC_TILD, ___________________SYM_L1__________________,      ___________________SYM_R1__________________, KC_PIPE,
+    _______, KC_GRV, KC_ASTR, KC_PLUS, KC_EQL, KC_BSLS,        KC_PIPE, KC_LPRN, KC_LCBR, KC_LBRC, KC_DQUO, KC_DQUO,
+    _______, KC_TILD, KC_SLSH, KC_MINS, KC_UNDS, KC_EXLM,      KC_AMPR, KC_RPRN, KC_RCBR, KC_RBRC, KC_QUOT, _______,
+                               _______, _______, _______,      TD_KC_LABK, _______, TD_KC_RABK
   ),
 
   [L_RAISE] = LAYOUT_split_3x6_3(
-    KC_CAPS,   KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5,     KC_PGUP, A(KC_LEFT),   KC_UP, A(KC_RGHT), KC_PGUP, _______,
-    CW_TOGG, HOME_F6, HOME_F7, HOME_F8, HOME_F9,  KC_F10,     KC_PGDN,    KC_LEFT, KC_DOWN,    KC_RGHT, KC_PGDN, _______,
-    _______,  KC_F11,  KC_F12, DM_REC1, DM_PLY1, DM_RSTP,     KC_LNG1,   KC_HOME, _______,     KC_END, _______, _______,
+    KC_CAPS, KC_ESC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      KC_PGUP, A(KC_LEFT),   KC_UP, A(KC_RGHT), KC_PGUP,  KC_DEL,
+    CW_TOGG, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,     KC_PGDN,    KC_LEFT, KC_DOWN,    KC_RGHT, KC_PGDN, XXXXXXX,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     KC_LNG1,    KC_HOME, XXXXXXX,     KC_END, XXXXXXX, _______,
                                 _______, _______, _______,    _______, _______, _______
   ),
 
@@ -49,23 +49,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L_NUMPAD] = LAYOUT_wrapped(
-    _______, XXXXXXX, XXXXXXX, XXXXXXX,  KC_NUM, XXXXXXX,                   KC_PSLS,  KC_P7,   KC_P8,   KC_P9, KC_PPLS, XXXXXXX,
-    _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,                   KC_PAST,  KC_P4,   KC_P5,   KC_P6, KC_PEQL, XXXXXXX,
-    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   KC_PMNS,  KC_P1,   KC_P2,   KC_P3, KC_PENT, XXXXXXX,
-                               _______, _______, _______,                   KC_TAB,  KC_P0, KC_PDOT
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     KC_SLSH,  KC_7,   KC_8,   KC_9, KC_PLUS, _______,
+    _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,     KC_ASTR,  KC_4,   KC_5,   KC_6, KC_EQL, _______,
+    _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     KC_MINS,  KC_1,   KC_2,   KC_3, KC_ENT, _______,
+                               _______, _______, _______,     KC_0,  KC_PDOT, KC_BSPC
   ),
 
   [L_FUNCPAD] = LAYOUT_wrapped(
-    _______, XXXXXXX,   KC_F7,   KC_F8,   KC_F9,  KC_F12,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-    _______, XXXXXXX,   KC_F4,   KC_F5,   KC_F6,  KC_F11,                   XXXXXXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, XXXXXXX,
-    _______, XXXXXXX,   KC_F1,   KC_F2,   KC_F3,  KC_F10,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
-                               _______, _______, _______,                   _______, _______, _______
+    _______, KC_F12,   KC_F7,   KC_F8,   KC_F9, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+    _______, KC_F11,   KC_F4,   KC_F5,   KC_F6, XXXXXXX,      XXXXXXX, KC_LSFT, KC_LCTL, KC_LALT, KC_LGUI, _______,
+    _______, KC_F10,   KC_F1,   KC_F2,   KC_F3, XXXXXXX,      XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______,
+                               _______, _______, _______,     _______, _______, _______
   ),
 
   [L_ADJUST] = LAYOUT_split_3x6_3(
-    CG_TOGG, BL_CMDR, BL_QWTH, BL_GAME, XXXXXXX, XXXXXXX,    KC_SEC1, KC_SEC2, KC_SEC3, KC_SEC4, KC_SEC5, XXXXXXX,
-    CM_TOGG, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI, XXXXXXX,    XXXXXXX, KC_VOLD, KC_VOLU, KC_MUTE, XXXXXXX, XXXXXXX,
-    AS_TOGG, RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD, XXXXXXX,    NK_TOGG, KC_MPRV, KC_MNXT, KC_MPLY, KC_MSTP, XXXXXXX,
+    XXXXXXX, CG_TOGG, BL_CMDR, BL_QWTH, BL_GAME, XXXXXXX,    XXXXXXX, KC_VOLD, KC_VOLU, KC_MUTE, XXXXXXX, XXXXXXX,
+    XXXXXXX, KC_CAPS, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI,    XXXXXXX, KC_MPRV, KC_MNXT, KC_MPLY, KC_MSTP, XXXXXXX,
+    XXXXXXX, XXXXXXX, RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD,    NK_TOGG, CM_TOGG, AS_TOGG, GU_TOGG, XXXXXXX, XXXXXXX,
                                XXXXXXX, _______, XXXXXXX,    XXXXXXX, _______, XXXXXXX
   ),
 

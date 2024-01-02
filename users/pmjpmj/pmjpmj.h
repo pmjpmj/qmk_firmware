@@ -59,6 +59,10 @@ enum userspace_custom_keycodes {
 #define NUM_ESC LT(L_NUMPAD, KC_ESC)
 #define FNC_DEL LT(L_FUNCPAD, KC_DEL)
 
+#define MOU_DEL LT(L_MOUSE, KC_DEL)
+#define NUM_TAB LT(L_NUMPAD, KC_TAB)
+#define FNC_ENT LT(L_FUNCPAD, KC_ENT)
+
 #define LALT_EC MT(MOD_LALT, KC_ESC)
 #define LALT_TB MT(MOD_LALT, KC_TAB)
 #define RALT_DL MT(MOD_RALT, KC_DEL)

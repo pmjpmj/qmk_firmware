@@ -59,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   KC_SLSH,  KC_7,   KC_8,   KC_9, KC_PLUS, _______,
     _______, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,                   KC_ASTR,  KC_4,   KC_5,   KC_6, KC_EQL, _______,
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, _______, _______, KC_MINS,  KC_1,   KC_2,   KC_3, KC_ENT, _______,
-             _______, _______, _______, _______, _______,                    KC_0,  KC_PDOT, KC_BSPC, _______, _______
+             _______, _______, _______, _______, _______,                    KC_0,  KC_DOT, KC_BSPC, _______, _______
   ),
 
   [L_FUNCPAD] = LAYOUT_wrapped(
@@ -102,29 +102,37 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 }
 #endif
 
-bool get_hold(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case LOW_SPC:
-        case RAI_BSP:
-        case NUM_ESC:
-        case MOU_ENT:
-        case HOME_T:
-        case HOME_N:
-            return true;
-        default:
-            return false;
-    }
-}
-
 #ifdef PERMISSIVE_HOLD_PER_KEY
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
-    return get_hold(keycode, record);
+    switch (keycode) {
+                case HOME_A:
+                case HOME_R:
+                case HOME_S:
+                case HOME_T:
+                case HOME_N:
+                case HOME_E:
+                case HOME_I:
+                case HOME_O:
+                    return true;
+                default:
+                    return false;
+            }
 }
 #endif
 
 #ifdef HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
-    return get_hold(keycode, record);
+    switch (keycode) {
+            case CTL_ESC:
+            case LOW_SPC:
+            case NUM_TAB:
+            case FNC_ENT:
+            case RAI_BSP:
+            case MOU_DEL:
+                return true;
+            default:
+                return false;
+        }
 }
 #endif
 

@@ -9,8 +9,8 @@ MAGIC_ENABLE = yes
 COMBO_ENABLE = no
 CAPS_WORD_ENABLE = yes
 
-DEBOUNCE_TYPE = sym_defer_g
-# DEBOUNCE_TYPE = asym_eager_defer_pk
+# DEBOUNCE_TYPE = sym_defer_g
+DEBOUNCE_TYPE = sym_eager_pk
 
 SECRETS_ENABLED = no
 MACROS_ENABLED = no

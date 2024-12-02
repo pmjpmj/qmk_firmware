@@ -19,6 +19,6 @@
 #define MOUSEKEY_TIME_TO_MAX    64
 
 #undef DEBOUNCE
-#define DEBOUNCE 7
+#define DEBOUNCE 30
 
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD

@@ -6,4 +6,4 @@ DYNAMIC_MACRO_ENABLE = yes
 MAGIC_ENABLE = yes
 LTO_ENABLE = no
 
-DEBOUNCE_TYPE = asym_eager_defer_pk
+DEBOUNCE_TYPE = sym_eager_pk

@@ -107,7 +107,27 @@ bool get_hold(uint16_t keycode, keyrecord_t *record) {
 
 #ifdef PERMISSIVE_HOLD_PER_KEY
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
-    return get_hold(keycode, record);
+    switch (keycode) {
+        case HOME_A:
+        case HOME_R:
+        case HOME_S:
+        case HOME_T:
+        case HOME_N:
+        case HOME_E:
+        case HOME_I:
+        case HOME_O:
+        // case HOMQ_A:
+        // case HOMQ_S:
+        case HOMQ_D:
+        case HOMQ_F:
+        case HOMQ_J:
+        case HOMQ_K:
+        case HOMQ_L:
+        case HOMQ_SCLN:
+            return true;
+        default:
+            return false;
+    }
 }
 #endif
 
@@ -223,4 +243,15 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
   }
 }
 
+#endif
+
+#ifdef TAP_DANCE_ENABLE
+tap_dance_action_t tap_dance_actions[] = {
+    [TD_LCBR] = ACTION_TAP_DANCE_FN(lcbr_dance),
+    [TD_RCBR] = ACTION_TAP_DANCE_FN(rcbr_dance),
+    [TD_LPRN] = ACTION_TAP_DANCE_FN(lprn_dance),
+    [TD_RPRN] = ACTION_TAP_DANCE_FN(rprn_dance),
+    [TD_LABK] = ACTION_TAP_DANCE_FN(labk_dance),
+    [TD_RABK] = ACTION_TAP_DANCE_FN(rabk_dance),
+};
 #endif

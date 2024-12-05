@@ -108,6 +108,7 @@ bool get_hold(uint16_t keycode, keyrecord_t *record) {
 #ifdef PERMISSIVE_HOLD_PER_KEY
 bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
+        case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
         case HOME_A:
         case HOME_R:
         case HOME_S:
@@ -133,7 +134,12 @@ bool get_permissive_hold(uint16_t keycode, keyrecord_t *record) {
 
 #ifdef HOLD_ON_OTHER_KEY_PRESS_PER_KEY
 bool get_hold_on_other_key_press(uint16_t keycode, keyrecord_t *record) {
-    return get_hold(keycode, record);
+    switch (keycode) {
+        case QK_LAYER_TAP ... QK_LAYER_TAP_MAX:
+            return true;
+        default:
+            return false;
+    }
 }
 #endif
 

@@ -3,14 +3,8 @@
 // default but used in macros
 #undef TAPPING_TERM
 #define TAPPING_TERM 180
-#define TAPPING_TERM_PER_KEY
 
-#define IGNORE_MOD_TAP_INTERRUPT
-
-#undef PERMISSIVE_HOLD
-#define PERMISSIVE_HOLD_PER_KEY
-
-#define TAPPING_FORCE_HOLD
+#define PERMISSIVE_HOLD
 
 #undef ONESHOT_TIMEOUT
 #define ONESHOT_TIMEOUT 500
@@ -31,8 +25,10 @@
 #define MOUSEKEY_TIME_TO_MAX    64
 
 // Recommended for heavy chording.
-#define QMK_KEYS_PER_SCAN 4
+#define QMK_KEYS_PER_SCAN 10
 #define USB_POLLING_INTERVAL_MS 1
 
 #undef DEBOUNCE
-#define DEBOUNCE 4
+#define DEBOUNCE 30
+
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD

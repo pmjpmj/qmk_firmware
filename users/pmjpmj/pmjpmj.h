@@ -111,12 +111,12 @@ enum userspace_custom_keycodes {
 #define HOMQ_L LALT_T(KC_L)
 #define HOMQ_SCLN GUI_T(KC_SCLN)
 
-#define TD_KC_LCBR TD(TD_LCBR)
-#define TD_KC_RCBR TD(TD_RCBR)
-#define TD_KC_LPRN TD(TD_LPRN)
-#define TD_KC_RPRN TD(TD_RPRN)
-#define TD_KC_LABK TD(TD_LABK)
-#define TD_KC_RABK TD(TD_RABK)
+// #define TD_KC_LCBR TD(TD_LCBR)
+// #define TD_KC_RCBR TD(TD_RCBR)
+// #define TD_KC_LPRN TD(TD_LPRN)
+// #define TD_KC_RPRN TD(TD_RPRN)
+// #define TD_KC_LABK TD(TD_LABK)
+// #define TD_KC_RABK TD(TD_RABK)
 
 // clang-format off
 #define _________________QWERTY_L1_________________       KC_Q,    KC_W,    KC_E,    KC_R,    KC_T
@@ -156,10 +156,10 @@ enum userspace_custom_keycodes {
 #define ___________________NUM_R1__________________       KC_6,    KC_7,    KC_8,    KC_9,    KC_0
 
 #define ___________________SYM_L1__________________       KC_EXLM,   KC_AT, KC_HASH,  KC_DLR, KC_PERC
-#define ___________________SYM_R1__________________       KC_CIRC, KC_AMPR, KC_ASTR, TD_KC_LPRN, TD_KC_RPRN
+#define ___________________SYM_R1__________________       KC_CIRC, KC_AMPR, KC_ASTR, KC_LPRN, KC_RPRN
 
-#define ___________________SYM_L2__________________       KC_MINS, KC_PLUS, KC_UNDS,  KC_EQL, KC_LABK
-#define ___________________SYM_R2__________________       KC_RABK, TD_KC_LCBR, TD_KC_RCBR, TD_KC_LABK, TD_KC_RABK
+// #define ___________________SYM_L2__________________       KC_MINS, KC_PLUS, KC_UNDS,  KC_EQL, KC_LABK
+// #define ___________________SYM_R2__________________       KC_RABK, TD_KC_LCBR, TD_KC_RCBR, TD_KC_LABK, TD_KC_RABK
 
 #define ___________________FNC_L1__________________       KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5
 #define ___________________FNC_R1__________________       KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10

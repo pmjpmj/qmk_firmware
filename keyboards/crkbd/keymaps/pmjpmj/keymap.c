@@ -29,19 +29,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L_LOWER] = LAYOUT_wrapped(
     KC_TILD, ___________________SYM_L1__________________,      ___________________SYM_R1__________________, KC_PIPE,
-    _______, KC_GRV, KC_ASTR, KC_PLUS, KC_EQL, KC_BSLS,        KC_PIPE, KC_LPRN, KC_LCBR, KC_LBRC, KC_DQUO, KC_DQUO,
-    _______, KC_TILD, KC_SLSH, KC_MINS, KC_UNDS, KC_EXLM,      KC_AMPR, KC_RPRN, KC_RCBR, KC_RBRC, KC_QUOT, _______,
-                               _______, _______, _______,      TD_KC_LABK, _______, TD_KC_RABK
+    _______, KC_GRV, KC_ASTR, KC_PLUS, KC_EQL, KC_BSLS,        KC_PIPE, KC_LPRN, KC_LCBR, KC_LBRC, KC_LT, KC_DQUO,
+    _______, KC_TILD, KC_SLSH, KC_MINS, KC_UNDS, KC_EXLM,      KC_AMPR, KC_RPRN, KC_RCBR, KC_RBRC, KC_GT, _______,
+                               _______, _______, _______,      KC_QUOT, _______, KC_DQUO
   ),
 
-  [L_RAISE] = LAYOUT_split_3x6_3(
+  [L_RAISE] = LAYOUT_wrapped(
     KC_CAPS, KC_ESC, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,      KC_PGUP, A(KC_LEFT),   KC_UP, A(KC_RGHT), KC_PGUP,  KC_DEL,
     CW_TOGG, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,     KC_PGDN,    KC_LEFT, KC_DOWN,    KC_RGHT, KC_PGDN, XXXXXXX,
     _______, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,     KC_LNG1,    KC_HOME, XXXXXXX,     KC_END, XXXXXXX, _______,
                                 _______, _______, _______,    _______, _______, _______
   ),
 
-  [L_MOUSE] = LAYOUT_split_3x6_3(
+  [L_MOUSE] = LAYOUT_wrapped(
     XXXXXXX, KC_BTN4, KC_BTN1, KC_BTN3, KC_BTN2, KC_BTN5,     KC_WH_L, KC_WH_D, KC_MS_U, KC_WH_U, KC_WH_R, XXXXXXX,
     XXXXXXX, KC_LGUI, KC_LALT, KC_LCTL, KC_LSFT, XXXXXXX,     XXXXXXX, KC_MS_L, KC_MS_D, KC_MS_R, XXXXXXX, XXXXXXX,
     XXXXXXX, KC_ACL0, KC_ACL1, KC_ACL2, XXXXXXX, XXXXXXX,     KC_BTN4, KC_BTN1, KC_BTN3, KC_BTN2, KC_BTN5, XXXXXXX,
@@ -62,7 +62,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                _______, _______, _______,     _______, _______, _______
   ),
 
-  [L_ADJUST] = LAYOUT_split_3x6_3(
+  [L_ADJUST] = LAYOUT_wrapped(
     XXXXXXX, CG_TOGG, BL_CMDR, BL_QWTH, BL_GAME, XXXXXXX,    XXXXXXX, KC_VOLD, KC_VOLU, KC_MUTE, XXXXXXX, XXXXXXX,
     XXXXXXX, KC_CAPS, RGB_TOG, RGB_HUI, RGB_SAI, RGB_VAI,    XXXXXXX, KC_MPRV, KC_MNXT, KC_MPLY, KC_MSTP, XXXXXXX,
     XXXXXXX, CW_TOGG, RGB_MOD, RGB_HUD, RGB_SAD, RGB_VAD,    NK_TOGG, CM_TOGG, AS_TOGG, GU_TOGG, XXXXXXX, XXXXXXX,
@@ -74,6 +74,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 layer_state_t layer_state_set_user(layer_state_t state) {
     return update_tri_layer_state(state, L_LOWER, L_RAISE, L_ADJUST);
 }
+
+#ifdef CHORDAL_HOLD
+const char chordal_hold_layout[MATRIX_ROWS][MATRIX_COLS] PROGMEM =
+    LAYOUT(
+        'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
+        'L', 'L', 'L', 'L', 'L', 'L',  'R', 'R', 'R', 'R', 'R', 'R',
+                       '*', '*', '*',  '*', '*', '*'
+    );
+#endif
 
 #ifdef TAPPING_TERM_PER_KEY
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {

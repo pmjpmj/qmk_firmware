@@ -38,6 +38,8 @@ enum userspace_custom_keycodes {
 
 #define LOWER MO(L_LOWER)
 #define RAISE MO(L_RAISE)
+#define ADJUST MO(L_ADJUST)
+#define RAISE_HYPER LM(L_RAISE, MOD_HYPR)
 
 // mod taps
 #define GUI_ESC MT(MOD_LGUI, KC_ESC)
